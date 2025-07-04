@@ -3,7 +3,8 @@ import React, { useState, useCallback } from "react";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { CTAButton } from "./CTAButton";
-import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 // Carousel images with proper paths
 const images = [
@@ -43,7 +44,8 @@ const heroContent = [
   }
 ];
 
-interface HeroCarouselProps {}
+// HeroCarousel component props (currently none needed)
+type HeroCarouselProps = Record<string, never>;
 
 // Enhanced hero section with image carousel, custom red overlay, and professional CTA
 export function HeroCarousel({}: HeroCarouselProps) {
@@ -92,11 +94,13 @@ export function HeroCarousel({}: HeroCarouselProps) {
       <div ref={sliderRef} className="keen-slider absolute inset-0 w-full h-full">
         {images.map((src, idx) => (
           <div key={idx} className="keen-slider__slide relative flex items-center justify-center overflow-hidden">
-            <img
+            <Image
               src={src}
               alt={`Slide ${idx + 1}`}
-              className="object-cover w-full h-full scale-110 transition-transform duration-[3000ms] ease-out hover:scale-100"
+              fill
+              className="object-cover scale-110 transition-transform duration-[3000ms] ease-out hover:scale-100"
               draggable={false}
+              priority={idx === 0}
             />
             {/* Custom gradient overlay with #F20C1F theme */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#F20C1F]/90 via-[#F20C1F]/70 to-[#F20C1F]/50" />

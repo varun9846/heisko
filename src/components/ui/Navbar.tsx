@@ -1,9 +1,8 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import "../../app/globals.css";
-    interface NavbarProps {
-  // Optionally extend for dynamic links or props in the future
-}
+// Navbar component props (currently none needed)
+type NavbarProps = Record<string, never>;
 
 // Responsive navigation bar with logo, links, and CTA
 export function Navbar({}: NavbarProps) {
