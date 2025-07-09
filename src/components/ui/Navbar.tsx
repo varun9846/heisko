@@ -56,7 +56,7 @@ export function Navbar({}: NavbarProps) {
           <a href="#testimonials" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Testimonials</a>
           <a href="#blog" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Blog</a>
           <a href="#about" className="text-gray-700 hover:text-red-600 font-medium transition-colors">About</a>
-          <a href="#contact" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Contact</a>
+          <a href="/contact" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Contact</a>
         </div>
         {/* CTA Button */}
         <div className="flex items-center">
