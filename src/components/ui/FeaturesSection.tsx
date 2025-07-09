@@ -41,7 +41,7 @@ const features = [
   }
 ];
 
-// Features section showcasing Heikos products and services
+// Features section showcasing Heisko products and services
 export function FeaturesSection() {
   return (
     <section className="py-20 px-6 bg-white">
@@ -49,7 +49,7 @@ export function FeaturesSection() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Why Choose <span className="text-heikos-red">Heikos</span>?
+            Why Choose <span className="text-Heisko-red">Heisko</span>?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Experience the perfect blend of innovation, quality, and performance with our premium display solutions.
@@ -61,7 +61,7 @@ export function FeaturesSection() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 hover:border-heikos-red/20"
+              className="group p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 hover:border-Heisko-red/20"
             >
               {/* Icon */}
               <div className={`w-16 h-16 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
@@ -69,7 +69,7 @@ export function FeaturesSection() {
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-heikos-red transition-colors">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-Heisko-red transition-colors">
                 {feature.title}
               </h3>
               <p className="text-gray-600 leading-relaxed">
@@ -78,7 +78,7 @@ export function FeaturesSection() {
 
               {/* Hover Effect */}
               <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-full h-1 bg-gradient-to-r from-heikos-red to-heikos-red-light rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                <div className="w-full h-1 bg-gradient-to-r from-Heisko-red to-Heisko-red-light rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               </div>
             </div>
           ))}
@@ -86,7 +86,7 @@ export function FeaturesSection() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <div className="inline-flex items-center space-x-4 bg-gradient-to-r from-heikos-red to-heikos-red-light text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+          <div className="inline-flex items-center space-x-4 bg-gradient-to-r from-Heisko-red to-Heisko-red-light text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
             <span className="font-semibold text-lg">Ready to Transform Your Workspace?</span>
             <span className="text-2xl">→</span>
           </div>

@@ -33,14 +33,14 @@ const footerLinks = [
   },
   {
     title: "FOR EDUCATION",
-    links: ["ViewSonic Education"],
+    links: ["Heisko Education"],
   },
   {
     title: "COMPANY",
-    links: ["About ViewSonic", "Leadership", "Mission and Vision", "Minority Owned Business", "Careers", "Awards", "Community Giveback", "Accessibility"],
+    links: ["About Heisko", "Leadership", "Mission and Vision", "Minority Owned Business", "Careers", "Awards", "Community Giveback", "Accessibility"],
   },
   {
-    title: "VIEWSONIC UPDATES",
+    title: "Heisko UPDATES",
     links: ["News Room", "Blogs", "Pressroom"],
   },
 ];
@@ -52,7 +52,7 @@ export function Footer() {
         {/* Top Row: Logo, Social, Newsletter */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pb-6 border-b border-gray-200">
           <div className="flex flex-col md:flex-row md:items-center gap-4">
-            <span className="text-2xl font-bold text-gray-900">Heikos</span>
+            <span className="text-2xl font-bold text-gray-900">Heisko</span>
             <span className="hidden md:inline-block ml-4 text-sm font-medium">FOLLOW US ON</span>
             <div className="flex gap-3 mt-2 md:mt-0">
               {socialLinks.map((s, i) => (

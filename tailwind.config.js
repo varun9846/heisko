@@ -8,9 +8,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'heikos-red': '#F20C1F',
-        'heikos-red-dark': '#D10A1A',
-        'heikos-red-light': '#FF1A2E',
+        'Heisko-red': '#F20C1F',
+        'Heisko-red-dark': '#D10A1A',
+        'Heisko-red-light': '#FF1A2E',
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out',

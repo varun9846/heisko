@@ -10,7 +10,6 @@ import Image from "next/image";
 const images = [
   "/images/carousel/image-1.jpg",
   "/images/carousel/image-2.jpg",
-  "/images/carousel/image-3.png",
   "/images/carousel/image-4.png",
   "/images/carousel/image-5.png",
 ];
@@ -19,7 +18,7 @@ const images = [
 const heroContent = [
   {
     title: "Future-Proof Your Workspace",
-    subtitle: "Elevate productivity with Heikos premium displays and solutions.",
+    subtitle: "Elevate productivity with Heisko premium displays and solutions.",
     cta: "Shop Now"
   },
   {
@@ -39,7 +38,7 @@ const heroContent = [
   },
   {
     title: "Premium Experience",
-    subtitle: "Experience the difference with Heikos advanced display technology.",
+    subtitle: "Experience the difference with Heisko advanced display technology.",
     cta: "Contact Us"
   }
 ];
