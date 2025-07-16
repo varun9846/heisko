@@ -1,6 +1,6 @@
 import { HeroCarousel } from "../components/ui/HeroCarousel";
 import { FeaturesSection } from "../components/ui/FeaturesSection";
-import { TestimonialsSection } from "../components/ui/TestimonialsSection";
+import TestimonialsSection from "../components/ui/TestimonialsSection";
 import { CTASection } from "../components/ui/CTASection";
 
 export default function Home() {
