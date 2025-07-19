@@ -44,7 +44,7 @@ export function Navbar({}: NavbarProps) {
               </div>
               <a href="/interactive-displays/ifp50-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFP50 Series</a>
               <a href="/interactive-displays/ifp51-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFP51 Series</a>
-              <a href="/interactive-displays/ifp52-2ed-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFP52-2ED Series</a>
+              <a href="/interactive-displays/ifp52-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFP52-2ED Series</a>
               <a href="/interactive-displays/ifp62-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFP62 Series</a>
               <a href="/interactive-displays/ifpg1-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFPG1 Series</a>
               <a href="/interactive-displays/ifp110" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 relative" role="menuitem">

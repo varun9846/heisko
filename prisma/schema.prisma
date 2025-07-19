@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Interactive Display IFP50 Series Model
+model InteractiveDisplayIFP50 {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+// Interactive Display IFP51 Series Model
+model InteractiveDisplayIFP51 {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+// Interactive Display IFP52 Series Model
+model InteractiveDisplayIFP52 {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+// Interactive Display IFP62 Series Model
+model InteractiveDisplayIFP62 {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
