@@ -1,0 +1,62 @@
+{
+    "success": true,
+    "data": [
+        {
+            "id": 14,
+            "createdAt": "2025-07-18T09:54:59.462Z",
+            "title": "ViewBoard® IFP50 Series - The Future of Education Is Here",
+            "description": "Featuring a high-accuracy touchscreen and intelligent palm recognition technology, these intuitive displays deliver an intuitive digital whiteboard experience for everyone from the youngest of students to the most experienced teachers. Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko",
+            "image": "https://rlljkvmptzljhonllyie.supabase.co/storage/v1/object/public/interactivedisplay-ifp50/ifp50/IND-1.jpg"
+        },
+        {
+            "id": 15,
+            "createdAt": "2025-07-18T09:54:59.462Z",
+            "title": "A Full Range of Sizes",
+            "description": "our ViewBoard IFP50 displays are a great fit for teaching environments of any size Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko",
+            "image": "https://rlljkvmptzljhonllyie.supabase.co/storage/v1/object/public/interactivedisplay-ifp50/ifp50/IND-2.jpg"
+        },
+        {
+            "id": 16,
+            "createdAt": "2025-07-18T09:54:59.462Z",
+            "title": "vLauncher 3.0 Interface",
+            "description": "Heisko® myViewBoard® software is among the best digital whiteboarding solutions available today. It has also earned an offical ISTE Seal. It immediately boosts learning environment engagement by enabling teachers to build engaging lessons, leverage their existing lessons, connect with students, and so much more. Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko",
+            "image": "https://rlljkvmptzljhonllyie.supabase.co/storage/v1/object/public/interactivedisplay-ifp50/ifp50/IND-3.jpg"
+        },
+        {
+            "id": 17,
+            "createdAt": "2025-07-18T09:54:59.462Z",
+            "title": "Bring Your Lessions to Life with myViewBoard Software",
+            "description": "Heisko Manager™ is a cloud-based management platform that empowers IT administrators to remotely monitor devices, manage apps, push out broadcasts and more within the myViewBoard ecosystem. Manager lets IT administrators seamlessly monitor and maintain individual displays across large organizations from a single control panel. Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko",
+            "image": "https://rlljkvmptzljhonllyie.supabase.co/storage/v1/object/public/interactivedisplay-ifp50/ifp50/IND-4.jpg"
+        },
+        {
+            "id": 18,
+            "createdAt": "2025-07-18T09:54:59.462Z",
+            "title": "ViewBoard® IFP50 Series - The Future of Education Is Here",
+            "description": "Every Heisko ViewBoard engaging display includes complimentary access to myViewBoard software to deliver an unparalleled learning environment experience. With this innovative hardware and software combination, teachers can engage students like never before with dynamic lesson creation, real-time collaboration, and immersive multimedia presentations. Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko",
+            "image": "https://rlljkvmptzljhonllyie.supabase.co/storage/v1/object/public/interactivedisplay-ifp50/ifp50/IND-5.jpg"
+        },
+        {
+            "id": 19,
+            "createdAt": "2025-07-18T09:54:59.462Z",
+            "title": "A Full Range of Sizes",
+            "description": "our ViewBoard IFP50 displays are a great fit for teaching environments of any size Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko",
+            "image": "https://rlljkvmptzljhonllyie.supabase.co/storage/v1/object/public/interactivedisplay-ifp50/ifp50/IND-6.jpg"
+        },
+        {
+            "id": 20,
+            "createdAt": "2025-07-18T09:54:59.462Z",
+            "title": "vLauncher 3.0 Interface",
+            "description": "Heisko® myViewBoard® software is among the best digital whiteboarding solutions available today. It has also earned an offical ISTE Seal. It immediately boosts learning environment engagement by enabling teachers to build engaging lessons, leverage their existing lessons, connect with students, and so much more. Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko",
+            "image": "https://rlljkvmptzljhonllyie.supabase.co/storage/v1/object/public/interactivedisplay-ifp50/ifp50/IND-7.jpg"
+        },
+        {
+            "id": 21,
+            "createdAt": "2025-07-18T09:54:59.462Z",
+            "title": "Bring Your Lessions to Life with myViewBoard Software",
+            "description": "Heisko Manager™ is a cloud-based management platform that empowers IT administrators to remotely monitor devices, manage apps, push out broadcasts and more within the myViewBoard ecosystem. Manager lets IT administrators seamlessly monitor and maintain individual displays across large organizations from a single control panel. Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko Heisko",
+            "image": "https://rlljkvmptzljhonllyie.supabase.co/storage/v1/object/public/interactivedisplay-ifp50/ifp50/IND-8.jpg"
+        }
+    ],
+    "message": "Successfully fetched 8 IFP50 series products"
+}
