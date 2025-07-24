@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import "../../app/globals.css";
 import Image from "next/image";
+import Link from "next/link";
 // Navbar component props (currently none needed)
 type NavbarProps = Record<string, never>;
 
@@ -11,7 +12,7 @@ export function Navbar({}: NavbarProps) {
     <nav className="w-full bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between h-20">
         {/* Logo with image */}
-        <a href="/" className="flex items-center flex-shrink-0 ml-4">
+        <Link href="/" className="flex items-center flex-shrink-0 ml-4">
           <Image
             src="/Logo.jpg"
             alt="Heisko logo"
@@ -21,7 +22,7 @@ export function Navbar({}: NavbarProps) {
             priority
           />
           {/* <span className="text-3xl font-bold text-red-600 tracking-tight">Heisko</span> */}
-        </a>
+        </Link>
         {/* Navigation Links */}
         <div className="hidden md:flex space-x-8">
           {/* Interactive Displays Dropdown */}
@@ -42,18 +43,18 @@ export function Navbar({}: NavbarProps) {
               <div className="px-4 py-2 border-b border-gray-100">
                 <h3 className="font-semibold text-gray-900">Interactive Displays</h3>
               </div>
-              <a href="/interactive-displays/ifp50-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFP50 Series</a>
-              <a href="/interactive-displays/ifp51-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFP51 Series</a>
-              <a href="/interactive-displays/ifp52-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFP52-2ED Series</a>
-              <a href="/interactive-displays/ifp62-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFP62 Series</a>
-              <a href="/interactive-displays/ifpg1-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFPG1 Series</a>
-              <a href="/interactive-displays/ifp110" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 relative" role="menuitem">
+              <Link href="/interactive-displays/ifp50-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFP50 Series</Link>
+              <Link href="/interactive-displays/ifp51-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFP51 Series</Link>
+              <Link href="/interactive-displays/ifp52-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFP52-2ED Series</Link>
+              <Link href="/interactive-displays/ifp62-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFP62 Series</Link>
+              <Link href="/interactive-displays/ifpg1-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFPG1 Series</Link>
+              <Link href="/interactive-displays/ifp110" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 relative" role="menuitem">
                 IFP110
                 <span className="absolute right-4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full"></span>
-              </a>
-              <a href="/interactive-displays/ultrawide-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Ultrawide Series</a>
-              <a href="/interactive-displays/higher-education-podium" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Higher Education Podium</a>
-              <a href="/interactive-displays/slot-in-pcs" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Slot-in PCs</a>
+              </Link>
+              <Link href="/interactive-displays/ultrawide-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Ultrawide Series</Link>
+              <Link href="/interactive-displays/higher-education-podium" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Higher Education Podium</Link>
+              <Link href="/interactive-displays/slot-in-pcs" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Slot-in PCs</Link>
             </div>
           </div>
           {/* Direct View LED Dropdown */}
@@ -64,7 +65,7 @@ export function Navbar({}: NavbarProps) {
               aria-expanded="false"
               tabIndex={0}
             >
-              Direct View LED
+              IFPD
             </button>
             <div
               className="absolute left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto transition-opacity z-50"
@@ -72,26 +73,22 @@ export function Navbar({}: NavbarProps) {
               tabIndex={-1}
             >
               <div className="px-4 py-2 border-b border-gray-100">
-                <h3 className="font-semibold text-gray-900">Digital Displays</h3>
+                <h3 className="font-semibold text-gray-900">IFPD Options</h3>
               </div>
-              <div className="py-2">
-                <div className="px-4 py-1 text-sm font-medium text-gray-900">Commercial Displays and Signage</div>
-                <a href="/direct-view-led/cde30-series" className="block px-8 py-2 text-gray-700 hover:bg-gray-100 text-sm" role="menuitem">CDE30 Series</a>
-                <a href="/direct-view-led/cde12-series" className="block px-8 py-2 text-gray-700 hover:bg-gray-100 text-sm" role="menuitem">CDE12 Series</a>
-                <a href="/direct-view-led/cdeuw-series" className="block px-8 py-2 text-gray-700 hover:bg-gray-100 text-sm" role="menuitem">CDEUW Series</a>
-              </div>
-              <div className="py-2">
-                <div className="px-4 py-1 text-sm font-medium text-gray-900">Direct View LED</div>
-              </div>
-              <div className="py-2">
-                <div className="px-4 py-1 text-sm font-medium text-gray-900">Interactive Kiosk</div>
-              </div>
+              <Link href="/ifpd/rk3588" className="block px-4 py-3 text-orange-600 hover:bg-gray-100 font-medium transition-colors" role="menuitem">
+                RK3588
+                <span className="absolute right-4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-orange-500 rounded-full"></span>
+              </Link>
+              <Link href="/ifpd/adv311d2" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">ADV311D2</Link>
+              <Link href="/ifpd/t982" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">T982</Link>
+              <Link href="/ifpd/adv100" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">ADV100</Link>
+              <Link href="/ifpd/u-plus-series" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">U+ Series</Link>
             </div>
           </div>
-          <a href="/surface-displays" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Surface Displays</a>
-          <a href="/commercial-displays" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Commercial Displays</a>
-          <a href="/about" className="text-gray-700 hover:text-red-600 font-medium transition-colors">About</a>
-          <a href="/contact" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Contact</a>
+          <Link href="/surface-displays" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Surface Displays</Link>
+          <Link href="/commercial-displays" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Commercial Displays</Link>
+          <Link href="/about" className="text-gray-700 hover:text-red-600 font-medium transition-colors">About</Link>
+          <Link href="/contact" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Contact</Link>
         </div>
         {/* CTA Button */}
         <div className="flex items-center">

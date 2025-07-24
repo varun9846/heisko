@@ -61,3 +61,52 @@ model InteractiveDisplayIFP62 {
   description String   @map("Description") // Product description
   image       String   @map("ImageUrl") // Product image URL
 }
+
+// Interactive Display IFPDRK3588 Series Model
+model IFPDRK3588  {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+// Interactive Display IFPDT982 Series Model
+model IFPDT982  {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+
+// Interactive Display IFPDADV311d2 Series Model
+model IFPDADV311d2  {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+// Interactive Display IFPDADV100 Series Model
+model IFPDADV100  {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
