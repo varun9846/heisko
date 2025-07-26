@@ -78,4 +78,88 @@ export interface IFP62SeriesError {
   success: false
   error: string
   message: string
-} 
+}
+
+// IFPDRK3588 Series Types
+export interface IFPDRK3588 {
+  id: number
+  createdAt: Date
+  title: string
+  description: string
+  image: string
+}
+
+export interface IFPDRK3588Response {
+  success: boolean
+  data: IFPDRK3588[]
+  message?: string
+}
+
+export interface IFPDRK3588Error {
+  success: false
+  error: string
+  message: string
+}
+
+// IFPDADV311d2 Series Types
+export interface IFPDADV311d2 {
+  id: number
+  createdAt: Date
+  title: string
+  description: string
+  image: string
+}
+
+export interface IFPDADV311d2Response {
+  success: boolean
+  data: IFPDADV311d2[]
+  message?: string
+}
+
+export interface IFPDADV311d2Error {
+  success: false
+  error: string
+  message: string
+}
+
+// IFPDT982 Series Types
+export interface IFPDT982 {
+  id: number
+  createdAt: Date
+  title: string
+  description: string
+  image: string
+}
+
+export interface IFPDT982Response {
+  success: boolean
+  data: IFPDT982[]
+  message?: string
+}
+
+export interface IFPDT982Error {
+  success: false
+  error: string
+  message: string
+}
+
+// IFPDADV100 Series Types
+export interface IFPDADV100 {
+  id: number
+  createdAt: Date
+  title: string
+  description: string
+  image: string
+}
+
+export interface IFPDADV100Response {
+  success: boolean
+  data: IFPDADV100[]
+  message?: string
+}
+
+export interface IFPDADV100Error {
+  success: false
+  error: string
+  message: string
+}

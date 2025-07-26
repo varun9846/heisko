@@ -1,10 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
 import { Button } from './button'
-import { InteractiveDisplayIFP50, InteractiveDisplayIFP51, InteractiveDisplayIFP52, InteractiveDisplayIFP62 } from '@/lib/types'
+import { InteractiveDisplayIFP50, InteractiveDisplayIFP51, InteractiveDisplayIFP52, InteractiveDisplayIFP62, IFPDRK3588, IFPDADV311d2, IFPDT982, IFPDADV100 } from '@/lib/types'
 
 interface ProductGalleryProps {
-  products: (InteractiveDisplayIFP50 | InteractiveDisplayIFP51 | InteractiveDisplayIFP52 | InteractiveDisplayIFP62)[]
+  products: (InteractiveDisplayIFP50 | InteractiveDisplayIFP51 | InteractiveDisplayIFP52 | InteractiveDisplayIFP62 | IFPDRK3588 | IFPDADV311d2 | IFPDT982 | IFPDADV100)[]
 }
 
 /**
@@ -15,6 +15,10 @@ interface ProductGalleryProps {
 export function ProductGallery({ products }: ProductGalleryProps) {
   // Helper function to determine series from product title
   const getSeriesBadge = (title: string) => {
+    if (title.includes('ADV100')) return 'ADV100 Premium Series'
+    if (title.includes('T982')) return 'T982 Professional Series'
+    if (title.includes('ADV311D2')) return 'ADV311D2 Enterprise Series'
+    if (title.includes('RK3588')) return 'RK3588 Elite Series'
     if (title.includes('IFP62')) return 'IFP62 Elite Series'
     if (title.includes('IFP52')) return 'IFP52 Series'
     if (title.includes('IFP51')) return 'IFP51 Series'
