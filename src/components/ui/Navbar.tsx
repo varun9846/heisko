@@ -82,7 +82,6 @@ export function Navbar({}: NavbarProps) {
               <Link href="/ifpd/adv311d2" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">ADV311D2</Link>
               <Link href="/ifpd/t982" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">T982</Link>
               <Link href="/ifpd/adv100" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">ADV100</Link>
-              <Link href="/ifpd/u-plus-series" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">U+ Series</Link>
             </div>
           </div>
           <Link href="/surface-displays" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Surface Displays</Link>
