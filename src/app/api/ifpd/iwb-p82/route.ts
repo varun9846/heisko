@@ -23,7 +23,6 @@ export async function GET(request: NextRequest): Promise<NextResponse<IWBP82Resp
       }
     })
 
-    console.log(`✅ Successfully fetched ${products.length} IWBP82 series products`)
 
     // Return successful response with data
     return NextResponse.json({

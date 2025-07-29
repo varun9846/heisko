@@ -51,8 +51,8 @@ export function Navbar({ }: NavbarProps) {
               <Link href="/ifpd/adv311d2" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">ADV311D2</Link>
               <Link href="/ifpd/t982" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">T982</Link>
               <Link href="/ifpd/adv100" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">ADV100</Link>
-              <Link href="/ifpd/iwb-s82" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">S-82</Link>
-              <Link href="/ifpd/iwb-p82" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">P-82</Link>
+              <Link href="/ifpd/iwb-s82" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">S-82 Series</Link>
+              <Link href="/ifpd/iwb-p82" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">P-82 Series</Link>
             </div>
           </div>
           {/* Interactive Displays Dropdown */}
@@ -77,11 +77,6 @@ export function Navbar({ }: NavbarProps) {
               <Link href="/interactive-displays/ifp51-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFP51 Series</Link>
               <Link href="/interactive-displays/ifp52-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFP52-2ED Series</Link>
               <Link href="/interactive-displays/ifp62-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFP62 Series</Link>
-              <Link href="/interactive-displays/ifpg1-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">IFPG1 Series</Link>
-              <Link href="/interactive-displays/ifp110" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 relative" role="menuitem">
-                IFP110
-                <span className="absolute right-4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full"></span>
-              </Link>
             </div>
           </div>
           {/* Smart Solutions Dropdown */}
