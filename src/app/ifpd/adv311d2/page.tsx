@@ -26,12 +26,12 @@ export default function IFPDADV311d2Page() {
                 const response = await axios.get<IFPDADV311d2Response>('/api/ifpd/adv311d2')
 
                 if (response.data.success) {
-                    console.log('✅ IFPDADV311d2 data fetched successfully:', response.data)
+                    ('✅ IFPDADV311d2 data fetched successfully:', response.data)
                     setProducts(response.data.data)
                     // Set the first product as hero product
                     if (response.data.data.length > 0) {
                         setHeroProduct(response.data.data[0])
-                        console.log('🎯 Hero product set:', response.data.data[0])
+                        ('🎯 Hero product set:', response.data.data[0])
                     }
                 } else {
                     setError('Failed to fetch IFPDADV311d2 products')

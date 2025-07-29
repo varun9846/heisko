@@ -26,12 +26,12 @@ export default function IFP51SeriesPage() {
         const response = await axios.get<IFP51SeriesResponse>('/api/interactive-display/ifp51-series')
         
         if (response.data.success) {
-          console.log('✅ IFP51 Data fetched successfully:', response.data)
+          ('✅ IFP51 Data fetched successfully:', response.data)
           setProducts(response.data.data)
           // Set the first product as hero product
           if (response.data.data.length > 0) {
             setHeroProduct(response.data.data[0])
-            console.log('🎯 IFP51 Hero product set:', response.data.data[0])
+            ('🎯 IFP51 Hero product set:', response.data.data[0])
           }
         } else {
           setError('Failed to fetch IFP51 products')

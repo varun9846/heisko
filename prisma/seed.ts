@@ -7,7 +7,6 @@ const prisma = new PrismaClient()
  * Run with: npx tsx prisma/seed.ts
  */
 async function main() {
-  console.log('🌱 Starting database seeding...')
 
   // Sample IFP50 series products data
   const sampleIFP50Products = [
@@ -126,14 +125,14 @@ async function main() {
   ]
 
   // Clear existing data
-  console.log('🗑️ Clearing existing data...')
+  ('🗑️ Clearing existing data...')
   await prisma.interactiveDisplayIFP50.deleteMany()
   await prisma.interactiveDisplayIFP51.deleteMany()
   await prisma.interactiveDisplayIFP52.deleteMany()
   await prisma.interactiveDisplayIFP62.deleteMany()
 
   // Insert IFP50 sample data
-  console.log('📝 Inserting IFP50 sample products...')
+  ('📝 Inserting IFP50 sample products...')
   for (const product of sampleIFP50Products) {
     await prisma.interactiveDisplayIFP50.create({
       data: product
@@ -141,7 +140,7 @@ async function main() {
   }
 
   // Insert IFP51 sample data
-  console.log('📝 Inserting IFP51 sample products...')
+  ('📝 Inserting IFP51 sample products...')
   for (const product of sampleIFP51Products) {
     await prisma.interactiveDisplayIFP51.create({
       data: product
@@ -149,7 +148,7 @@ async function main() {
   }
 
   // Insert IFP52 sample data
-  console.log('📝 Inserting IFP52 sample products...')
+  ('📝 Inserting IFP52 sample products...')
   for (const product of sampleIFP52Products) {
     await prisma.interactiveDisplayIFP52.create({
       data: product
@@ -157,18 +156,18 @@ async function main() {
   }
 
   // Insert IFP62 sample data
-  console.log('📝 Inserting IFP62 sample products...')
+  ('📝 Inserting IFP62 sample products...')
   for (const product of sampleIFP62Products) {
     await prisma.interactiveDisplayIFP62.create({
       data: product
     })
   }
 
-  console.log('✅ Database seeding completed successfully!')
-  console.log(`📊 Created ${sampleIFP50Products.length} IFP50 series products`)
-  console.log(`📊 Created ${sampleIFP51Products.length} IFP51 series products`)
-  console.log(`📊 Created ${sampleIFP52Products.length} IFP52 series products`)
-  console.log(`📊 Created ${sampleIFP62Products.length} IFP62 series products`)
+  ('✅ Database seeding completed successfully!')
+  (`📊 Created ${sampleIFP50Products.length} IFP50 series products`)
+  (`📊 Created ${sampleIFP51Products.length} IFP51 series products`)
+  (`📊 Created ${sampleIFP52Products.length} IFP52 series products`)
+  (`📊 Created ${sampleIFP62Products.length} IFP62 series products`)
 }
 
 main()

@@ -7,7 +7,7 @@ import Link from "next/link";
 type NavbarProps = Record<string, never>;
 
 // Responsive navigation bar with logo, links, and CTA
-export function Navbar({}: NavbarProps) {
+export function Navbar({ }: NavbarProps) {
   return (
     <nav className="w-full bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between h-20">
@@ -25,6 +25,36 @@ export function Navbar({}: NavbarProps) {
         </Link>
         {/* Navigation Links */}
         <div className="hidden md:flex space-x-8">
+
+          {/* Direct View LED Dropdown */}
+          <div className="relative group">
+            <button
+              className="text-gray-700 hover:text-red-600 font-medium transition-colors focus:outline-none"
+              aria-haspopup="true"
+              aria-expanded="false"
+              tabIndex={0}
+            >
+              IFPD Series
+            </button>
+            <div
+              className="absolute left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto transition-opacity z-50"
+              role="menu"
+              tabIndex={-1}
+            >
+              <div className="px-4 py-2 border-b border-gray-100">
+                <h3 className="font-semibold text-gray-900">IFPD Series</h3>
+              </div>
+              <Link href="/ifpd/rk3588" className="block px-4 py-3 text-orange-600 hover:bg-gray-100 font-medium transition-colors" role="menuitem">
+                RK3588
+                <span className="absolute right-4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-orange-500 rounded-full"></span>
+              </Link>
+              <Link href="/ifpd/adv311d2" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">ADV311D2</Link>
+              <Link href="/ifpd/t982" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">T982</Link>
+              <Link href="/ifpd/adv100" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">ADV100</Link>
+              <Link href="/ifpd/iwb-s82" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">S-82</Link>
+              <Link href="/ifpd/iwb-p82" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">P-82</Link>
+            </div>
+          </div>
           {/* Interactive Displays Dropdown */}
           <div className="relative group">
             <button
@@ -52,12 +82,9 @@ export function Navbar({}: NavbarProps) {
                 IFP110
                 <span className="absolute right-4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full"></span>
               </Link>
-              <Link href="/interactive-displays/ultrawide-series" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Ultrawide Series</Link>
-              <Link href="/interactive-displays/higher-education-podium" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Higher Education Podium</Link>
-              <Link href="/interactive-displays/slot-in-pcs" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Slot-in PCs</Link>
             </div>
           </div>
-          {/* Direct View LED Dropdown */}
+          {/* Smart Solutions Dropdown */}
           <div className="relative group">
             <button
               className="text-gray-700 hover:text-red-600 font-medium transition-colors focus:outline-none"
@@ -65,27 +92,47 @@ export function Navbar({}: NavbarProps) {
               aria-expanded="false"
               tabIndex={0}
             >
-              IFPD
+              Smart Solutions
             </button>
             <div
               className="absolute left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto transition-opacity z-50"
               role="menu"
               tabIndex={-1}
             >
-              <div className="px-4 py-2 border-b border-gray-100">
-                <h3 className="font-semibold text-gray-900">IFPD Options</h3>
-              </div>
-              <Link href="/ifpd/rk3588" className="block px-4 py-3 text-orange-600 hover:bg-gray-100 font-medium transition-colors" role="menuitem">
-                RK3588
-                <span className="absolute right-4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-orange-500 rounded-full"></span>
-              </Link>
-              <Link href="/ifpd/adv311d2" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">ADV311D2</Link>
-              <Link href="/ifpd/t982" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">T982</Link>
-              <Link href="/ifpd/adv100" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">ADV100</Link>
+
+              <Link href="/smart-solutions/smart-blackboard-m86lb" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Smart Blackboard M86LB</Link>
+              <Link href="/smart-solutions/smart-blackboard-m86" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Smart Blackboard M86</Link>
+              <Link href="/smart-solutions/smart-touch-table" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Smart Touch Table</Link>
+              <Link href="/smart-solutions/smart-lifting-touch-table" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Smart Lifting Touch Table</Link>
+              <Link href="/smart-solutions/smart-tv-lts" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Smart TV LTS</Link>
             </div>
           </div>
-          <Link href="/surface-displays" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Surface Displays</Link>
-          <Link href="/commercial-displays" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Commercial Displays</Link>
+
+          {/* Accessories Dropdown */}
+          <div className="relative group">
+            <button
+              className="text-gray-700 hover:text-red-600 font-medium transition-colors focus:outline-none"
+              aria-haspopup="true"
+              aria-expanded="false"
+              tabIndex={0}
+            >
+              Accessories
+            </button>
+            <div
+              className="absolute left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto transition-opacity z-50"
+              role="menu"
+              tabIndex={-1}
+            >
+
+              <Link href="/accessories/floor-kiosk" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Floor Kiosk</Link>
+              <Link href="/accessories/portable-panel" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Portable Panel</Link>
+              <Link href="/accessories/meeting-pod" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Meeting Pod</Link>
+              <Link href="/accessories/tv-stand" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">TV-Stand</Link>
+              <Link href="/accessories/ops" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">OPS</Link>
+            </div>
+          </div>
+
+
           <Link href="/about" className="text-gray-700 hover:text-red-600 font-medium transition-colors">About</Link>
           <Link href="/contact" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Contact</Link>
         </div>
