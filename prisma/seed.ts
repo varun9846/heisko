@@ -125,14 +125,14 @@ async function main() {
   ]
 
   // Clear existing data
-  ('🗑️ Clearing existing data...')
+  console.log('🗑️ Clearing existing data...')
   await prisma.interactiveDisplayIFP50.deleteMany()
   await prisma.interactiveDisplayIFP51.deleteMany()
   await prisma.interactiveDisplayIFP52.deleteMany()
   await prisma.interactiveDisplayIFP62.deleteMany()
 
   // Insert IFP50 sample data
-  ('📝 Inserting IFP50 sample products...')
+  console.log('📝 Inserting IFP50 sample products...')
   for (const product of sampleIFP50Products) {
     await prisma.interactiveDisplayIFP50.create({
       data: product
@@ -140,7 +140,7 @@ async function main() {
   }
 
   // Insert IFP51 sample data
-  ('📝 Inserting IFP51 sample products...')
+  console.log('📝 Inserting IFP51 sample products...')
   for (const product of sampleIFP51Products) {
     await prisma.interactiveDisplayIFP51.create({
       data: product
@@ -148,7 +148,7 @@ async function main() {
   }
 
   // Insert IFP52 sample data
-  ('📝 Inserting IFP52 sample products...')
+  console.log('📝 Inserting IFP52 sample products...')
   for (const product of sampleIFP52Products) {
     await prisma.interactiveDisplayIFP52.create({
       data: product
@@ -156,18 +156,18 @@ async function main() {
   }
 
   // Insert IFP62 sample data
-  ('📝 Inserting IFP62 sample products...')
+  console.log('📝 Inserting IFP62 sample products...')
   for (const product of sampleIFP62Products) {
     await prisma.interactiveDisplayIFP62.create({
       data: product
     })
   }
 
-  ('✅ Database seeding completed successfully!')
-  (`📊 Created ${sampleIFP50Products.length} IFP50 series products`)
-  (`📊 Created ${sampleIFP51Products.length} IFP51 series products`)
-  (`📊 Created ${sampleIFP52Products.length} IFP52 series products`)
-  (`📊 Created ${sampleIFP62Products.length} IFP62 series products`)
+  console.log('✅ Database seeding completed successfully!')
+  console.log(`📊 Created ${sampleIFP50Products.length} IFP50 series products`)
+  console.log(`📊 Created ${sampleIFP51Products.length} IFP51 series products`)
+  console.log(`📊 Created ${sampleIFP52Products.length} IFP52 series products`)
+  console.log(`📊 Created ${sampleIFP62Products.length} IFP62 series products`)
 }
 
 main()

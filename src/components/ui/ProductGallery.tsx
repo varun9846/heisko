@@ -1,10 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
 import { Button } from './button'
-import { InteractiveDisplayIFP50, InteractiveDisplayIFP51, InteractiveDisplayIFP52, InteractiveDisplayIFP62, IFPDRK3588, IFPDADV311d2, IFPDT982, IFPDADV100, SmartBlackboardM86LB, SmartBlackboardM86, SmartTouchTable, SmartLiftingTouchTable, SmartTVLTS, IWBS82, IWBP82 } from '@/lib/types'
+import { InteractiveDisplayIFP50, InteractiveDisplayIFP51, InteractiveDisplayIFP52, InteractiveDisplayIFP62, IFPDRK3588, IFPDADV311d2, IFPDT982, IFPDADV100, SmartBlackboardM86LB, SmartBlackboardM86, SmartTouchTable, SmartLiftingTouchTable, SmartTVLTS, IWBS82, IWBP82, ASFloorKiosk, PortablePanel, AMeetingPod, ATVStand, OPS1 } from '@/lib/types'
 
 interface ProductGalleryProps {
-  products: (InteractiveDisplayIFP50 | InteractiveDisplayIFP51 | InteractiveDisplayIFP52 | InteractiveDisplayIFP62 | IFPDRK3588 | IFPDADV311d2 | IFPDT982 | IFPDADV100 | SmartBlackboardM86LB | SmartBlackboardM86 | SmartTouchTable | SmartLiftingTouchTable | SmartTVLTS | IWBS82 | IWBP82)[]
+  products: (InteractiveDisplayIFP50 | InteractiveDisplayIFP51 | InteractiveDisplayIFP52 | InteractiveDisplayIFP62 | IFPDRK3588 | IFPDADV311d2 | IFPDT982 | IFPDADV100 | SmartBlackboardM86LB | SmartBlackboardM86 | SmartTouchTable | SmartLiftingTouchTable | SmartTVLTS | IWBS82 | IWBP82 | ASFloorKiosk | PortablePanel | AMeetingPod | ATVStand | OPS1)[]
 }
 
 /**
@@ -15,6 +15,11 @@ interface ProductGalleryProps {
 export function ProductGallery({ products }: ProductGalleryProps) {
   // Helper function to determine series from product title
   const getSeriesBadge = (title: string) => {
+    if (title.includes('OPS') || title.includes('Open Pluggable')) return 'OPS Series'
+    if (title.includes('TV Stand') || title.includes('TV-Stand') || title.includes('Stand')) return 'TV Stand Series'
+    if (title.includes('Meeting Pod') || title.includes('Pod')) return 'Meeting Pod Series'
+    if (title.includes('Portable Panel') || title.includes('Panel')) return 'Portable Panel Series'
+    if (title.includes('Floor Kiosk') || title.includes('Kiosk')) return 'Floor Kiosk Series'
     if (title.includes('SmartTVLTS') || title.includes('Smart TV LTS')) return 'SmartTVLTS Series'
     if (title.includes('SmartLiftingTouchTable') || title.includes('Lifting Touch Table')) return 'SmartLiftingTouchTable Series'
     if (title.includes('SmartTouchTable') || title.includes('Touch Table')) return 'SmartTouchTable Series'

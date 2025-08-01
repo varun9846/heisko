@@ -310,3 +310,108 @@ export interface IWBP82Error {
   error: string
   message: string
 }
+
+// ASFloorKiosk Series Types
+export interface ASFloorKiosk {
+  id: number
+  createdAt: Date
+  title: string
+  description: string
+  image: string
+}
+
+export interface ASFloorKioskResponse {
+  success: boolean
+  data: ASFloorKiosk[]
+  message?: string
+}
+
+export interface ASFloorKioskError {
+  success: false
+  error: string
+  message: string
+}
+
+// PortablePanel Series Types
+export interface PortablePanel {
+  id: number
+  createdAt: Date
+  title: string
+  description: string
+  image: string
+}
+
+export interface PortablePanelResponse {
+  success: boolean
+  data: PortablePanel[]
+  message?: string
+}
+
+export interface PortablePanelError {
+  success: false
+  error: string
+  message: string
+}
+
+// Meeting Pod Series Types
+export interface AMeetingPod {
+  id: number
+  createdAt: Date
+  title: string
+  description: string
+  image: string
+}
+
+export interface AMeetingPodResponse {
+  success: boolean
+  data: AMeetingPod[]
+  message?: string
+}
+
+export interface AMeetingPodError {
+  success: false
+  error: string
+  message: string
+}
+
+// TV Stand Series Types
+export interface ATVStand {
+  id: number
+  createdAt: Date
+  title: string
+  description: string
+  image: string
+}
+
+export interface ATVStandResponse {
+  success: boolean
+  data: ATVStand[]
+  message?: string
+}
+
+export interface ATVStandError {
+  success: false
+  error: string
+  message: string
+}
+
+// OPS1 Series Types
+export interface OPS1 {
+  id: number
+  createdAt: Date
+  title: string
+  description: string
+  image: string
+}
+
+export interface OPS1Response {
+  success: boolean
+  data: OPS1[]
+  message?: string
+}
+
+export interface OPS1Error {
+  success: false
+  error: string
+  message: string
+}
