@@ -1,10 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
 import { Button } from './button'
-import { InteractiveDisplayIFP50, InteractiveDisplayIFP51, InteractiveDisplayIFP52, InteractiveDisplayIFP62, IFPDRK3588, IFPDADV311d2, IFPDT982, IFPDADV100 } from '@/lib/types'
+import { InteractiveDisplayIFP50, InteractiveDisplayIFP51, InteractiveDisplayIFP52, InteractiveDisplayIFP62, IFPDRK3588, IFPDADV311d2, IFPDT982, IFPDADV100, SmartBlackboardM86LB, SmartBlackboardM86, SmartTouchTable, SmartLiftingTouchTable, SmartTVLTS, IWBS82, IWBP82, ASFloorKiosk, PortablePanel, AMeetingPod, ATVStand, OPS1 } from '@/lib/types'
 
 interface ProductGalleryProps {
-  products: (InteractiveDisplayIFP50 | InteractiveDisplayIFP51 | InteractiveDisplayIFP52 | InteractiveDisplayIFP62 | IFPDRK3588 | IFPDADV311d2 | IFPDT982 | IFPDADV100)[]
+  products: (InteractiveDisplayIFP50 | InteractiveDisplayIFP51 | InteractiveDisplayIFP52 | InteractiveDisplayIFP62 | IFPDRK3588 | IFPDADV311d2 | IFPDT982 | IFPDADV100 | SmartBlackboardM86LB | SmartBlackboardM86 | SmartTouchTable | SmartLiftingTouchTable | SmartTVLTS | IWBS82 | IWBP82 | ASFloorKiosk | PortablePanel | AMeetingPod | ATVStand | OPS1)[]
 }
 
 /**
@@ -15,13 +15,25 @@ interface ProductGalleryProps {
 export function ProductGallery({ products }: ProductGalleryProps) {
   // Helper function to determine series from product title
   const getSeriesBadge = (title: string) => {
-    if (title.includes('ADV100')) return 'ADV100 Premium Series'
+    if (title.includes('OPS') || title.includes('Open Pluggable')) return 'OPS Series'
+    if (title.includes('TV Stand') || title.includes('TV-Stand') || title.includes('Stand')) return 'TV Stand Series'
+    if (title.includes('Meeting Pod') || title.includes('Pod')) return 'Meeting Pod Series'
+    if (title.includes('Portable Panel') || title.includes('Panel')) return 'Portable Panel Series'
+    if (title.includes('Floor Kiosk') || title.includes('Kiosk')) return 'Floor Kiosk Series'
+    if (title.includes('SmartTVLTS') || title.includes('Smart TV LTS')) return 'SmartTVLTS Series'
+    if (title.includes('SmartLiftingTouchTable') || title.includes('Lifting Touch Table')) return 'SmartLiftingTouchTable Series'
+    if (title.includes('SmartTouchTable') || title.includes('Touch Table')) return 'SmartTouchTable Series'
+    if (title.includes('SmartBlackboardM86') || title.includes('M86')) return 'SmartBlackboardM86 Series'
+    if (title.includes('IWBP82') || title.includes('P-82')) return 'IWBP82 Series'
+    if (title.includes('IWBS82') || title.includes('S-82')) return 'IWBS82 Series'
+    if (title.includes('ADV100')) return 'ADV100 Series'
     if (title.includes('T982')) return 'T982 Professional Series'
     if (title.includes('ADV311D2')) return 'ADV311D2 Enterprise Series'
     if (title.includes('RK3588')) return 'RK3588 Elite Series'
     if (title.includes('IFP62')) return 'IFP62 Elite Series'
     if (title.includes('IFP52')) return 'IFP52 Series'
     if (title.includes('IFP51')) return 'IFP51 Series'
+    if (title.includes('M86LB')) return 'M86LB Series'
     return 'IFP50 Series'
   }
 

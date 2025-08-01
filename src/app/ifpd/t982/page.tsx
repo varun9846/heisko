@@ -26,12 +26,10 @@ export default function IFPDT982Page() {
                 const response = await axios.get<IFPDT982Response>('/api/ifpd/t982')
 
                 if (response.data.success) {
-                    console.log('✅ IFPDT982 data fetched successfully:', response.data)
                     setProducts(response.data.data)
                     // Set the first product as hero product
                     if (response.data.data.length > 0) {
                         setHeroProduct(response.data.data[0])
-                        console.log('🎯 Hero product set:', response.data.data[0])
                     }
                 } else {
                     setError('Failed to fetch IFPDT982 products')
