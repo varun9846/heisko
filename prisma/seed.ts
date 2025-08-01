@@ -7,7 +7,6 @@ const prisma = new PrismaClient()
  * Run with: npx tsx prisma/seed.ts
  */
 async function main() {
-  console.log('🌱 Starting database seeding...')
 
   // Sample IFP50 series products data
   const sampleIFP50Products = [

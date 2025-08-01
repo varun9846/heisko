@@ -86,7 +86,6 @@ model IFPDT982  {
   image       String   @map("ImageUrl") // Product image URL
 }
 
-
 // Interactive Display IFPDADV311d2 Series Model
 model IFPDADV311d2  {
   // Unique identifier for each record
@@ -110,3 +109,172 @@ model IFPDADV100  {
   description String   @map("Description") // Product description
   image       String   @map("ImageUrl") // Product image URL
 }
+
+// Meeting Pod Series Model
+model AMeetingPod {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+// Floor Kiosk Series Model
+model ASFloorKiosk {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+// TV Stand Series Model
+model ATVStand {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+// IFPD Education EUD Series Model
+model IFPDEducationEUD {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+// IWB P82 Series Model
+model IWBP82 {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+// IWB S82 Series Model
+model IWBS82 {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+// OPS1 Series Model
+model OPS1 {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+// OPS Intel Series Model
+model OPSIntel {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+// Portable Panel Series Model
+model PortablePanel {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+// Smart Blackboard M86 Series Model
+model SmartBlackboardM86 {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+// Smart Blackboard M86LB Series Model
+model SmartBlackboardM86LB {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+// Smart Lifting Touch Table Series Model
+model SmartLiftingTouchTable {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+// Smart TV LTS Series Model
+model SmartTVLTS {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+
+// Smart Touch Table Series Model
+model SmartTouchTable {
+  // Unique identifier for each record
+  id          Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt   DateTime @default(now())
+  // Fields derived from the CSV columns
+  title       String   @map("Title") // Product title/name
+  description String   @map("Description") // Product description
+  image       String   @map("ImageUrl") // Product image URL
+}
+

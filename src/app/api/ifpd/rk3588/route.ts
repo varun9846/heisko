@@ -16,7 +16,6 @@ export async function GET(request: NextRequest): Promise<NextResponse<IFPDRK3588
       }
     })
 
-    console.log(`✅ Successfully fetched ${products.length} IFPDRK3588 series products`)
 
     // Return successful response with data
     return NextResponse.json({
