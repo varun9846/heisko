@@ -12,6 +12,9 @@ const images = [
   "/images/carousel/image-2.jpg",
   "/images/carousel/image-4.png",
   "/images/carousel/image-5.png",
+  "/images/carousel/image-6.png",
+  "/images/carousel/image8.png",
+  "/images/carousel/image9.png",
 ];
 
 // Hero content for each slide
@@ -40,6 +43,16 @@ const heroContent = [
     title: "Premium Experience",
     subtitle: "Experience the difference with Heisko advanced display technology.",
     cta: "Contact Us"
+  },
+  {
+    title: "Advanced Technology",
+    subtitle: "Cutting-edge displays that redefine what's possible in modern workspaces.",
+    cta: "Discover More"
+  },
+  {
+    title: "Collaborative Excellence",
+    subtitle: "Foster creativity and teamwork with our innovative display solutions.",
+    cta: "Get Quote"
   }
 ];
 

@@ -76,12 +76,11 @@ export function ProductGallery({ products }: ProductGalleryProps) {
                   </span>
                 </div>
 
-                {/* Quick View Button */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {/* <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Button className="bg-white text-red-600 hover:bg-red-600 hover:text-white px-6 py-3 rounded-lg font-semibold shadow-md transition-colors duration-300">
                     View Details
                   </Button>
-                </div>
+                </div> */}
               </div>
 
               {/* Product Info */}
