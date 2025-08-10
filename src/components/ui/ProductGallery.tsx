@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { Button } from './button'
+import { useRouter } from 'next/navigation'
 import { InteractiveDisplayIFP50, InteractiveDisplayIFP51, InteractiveDisplayIFP52, InteractiveDisplayIFP62, IFPDRK3588, IFPDADV311d2, IFPDT982, IFPDADV100, SmartBlackboardM86LB, SmartBlackboardM86, SmartTouchTable, SmartLiftingTouchTable, SmartTVLTS, IWBS82, IWBP82, ASFloorKiosk, PortablePanel, AMeetingPod, ATVStand, OPS1 } from '@/lib/types'
 
 interface ProductGalleryProps {
@@ -13,6 +14,8 @@ interface ProductGalleryProps {
  * Supports IFP50, IFP51, IFP52, and IFP62 series products
  */
 export function ProductGallery({ products }: ProductGalleryProps) {
+  const router = useRouter();
+  
   // Helper function to determine series from product title
   const getSeriesBadge = (title: string) => {
     if (title.includes('OPS') || title.includes('Open Pluggable')) return 'OPS Series'
@@ -76,28 +79,29 @@ export function ProductGallery({ products }: ProductGalleryProps) {
                   </span>
                 </div>
 
-                {/* Quick View Button */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {/* <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Button className="bg-white text-red-600 hover:bg-red-600 hover:text-white px-6 py-3 rounded-lg font-semibold shadow-md transition-colors duration-300">
                     View Details
                   </Button>
-                </div>
+                </div> */}
               </div>
 
               {/* Product Info */}
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-red-600 transition-colors duration-300">
-                  {product.title}
+                  {product?.title}
                 </h3>
-                <p className="text-gray-600 mb-4 line-clamp-3 text-sm">
-                  {product.description.length > 150 
-                    ? `${product.description.substring(0, 150)}...` 
-                    : product.description}
+              
+                <p className="text-gray-600 mb-4  text-md">
+                  {product?.description}
                 </p>
 
                 {/* Action Buttons */}
                 <div className="flex gap-3">
-                  <Button className="flex-1 bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg font-medium transition-colors duration-300">
+                  <Button 
+                    onClick={() => router.push('/contact')}
+                    className="flex-1 bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg font-medium transition-colors duration-300"
+                  >
                     Get Quote
                   </Button>
                   <Button variant="outline" className="px-4 py-2 border-red-600 hover:border-red-700 text-red-600 hover:text-red-700 rounded-lg transition-colors duration-300">
