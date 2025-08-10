@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import { Monitor, Zap, Shield, Users, Smartphone, Globe, ArrowRight, CheckCircle, Star, Quote } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 // Enhanced feature data with more details
 const features = [
@@ -81,6 +82,7 @@ const stats = [
 ];
 
 export function FeaturesSection() {
+  const router = useRouter();
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
   const [activeFeature, setActiveFeature] = useState(0);
 
@@ -170,7 +172,10 @@ export function FeaturesSection() {
                       <div className="text-lg font-bold text-gray-900">{features[activeFeature].stats}</div>
                     </div>
                   </div>
-                  <button className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                  <button 
+                    onClick={() => router.push('/contact')}
+                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                  >
                     <span>Learn More</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
@@ -243,7 +248,10 @@ export function FeaturesSection() {
 
               {/* Learn More Button */}
               <div className="flex items-center justify-between">
-                <button className="flex items-center gap-2 text-red-600 font-semibold hover:text-red-700 transition-colors group-hover:gap-3 duration-300">
+                <button 
+                  onClick={() => router.push('/contact')}
+                  className="flex items-center gap-2 text-red-600 font-semibold hover:text-red-700 transition-colors group-hover:gap-3 duration-300"
+                >
                   <span>Learn More</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -291,10 +299,16 @@ export function FeaturesSection() {
               Get started with a free consultation and demo today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+              <button 
+                onClick={() => router.push('/contact')}
+                className="px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
                 Schedule Free Demo
               </button>
-              <button className="px-8 py-4 border-2 border-red-600 text-red-600 rounded-full font-semibold hover:bg-red-50 transition-all duration-300">
+              <button 
+                onClick={() => router.push('/contact')}
+                className="px-8 py-4 border-2 border-red-600 text-red-600 rounded-full font-semibold hover:bg-red-50 transition-all duration-300"
+              >
                 View Specifications
               </button>
             </div>

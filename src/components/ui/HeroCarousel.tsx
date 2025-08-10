@@ -5,6 +5,7 @@ import { useKeenSlider } from "keen-slider/react";
 import { CTAButton } from "./CTAButton";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 // Carousel images with proper paths
 const images = [
@@ -12,6 +13,9 @@ const images = [
   "/images/carousel/image-2.jpg",
   "/images/carousel/image-4.png",
   "/images/carousel/image-5.png",
+  "/images/carousel/image-6.png",
+  "/images/carousel/image8.png",
+  "/images/carousel/image9.png",
 ];
 
 // Hero content for each slide
@@ -40,6 +44,16 @@ const heroContent = [
     title: "Premium Experience",
     subtitle: "Experience the difference with Heisko advanced display technology.",
     cta: "Contact Us"
+  },
+  {
+    title: "Advanced Technology",
+    subtitle: "Cutting-edge displays that redefine what's possible in modern workspaces.",
+    cta: "Discover More"
+  },
+  {
+    title: "Collaborative Excellence",
+    subtitle: "Foster creativity and teamwork with our innovative display solutions.",
+    cta: "Get Quote"
   }
 ];
 
@@ -48,6 +62,7 @@ type HeroCarouselProps = Record<string, never>;
 
 // Enhanced hero section with image carousel, custom red overlay, and professional CTA
 export function HeroCarousel({}: HeroCarouselProps) {
+  const router = useRouter();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
 
@@ -121,7 +136,10 @@ export function HeroCarousel({}: HeroCarouselProps) {
         
         {/* Enhanced CTA Button */}
         <div className="animate-fade-in-delay-2">
-          <CTAButton className="text-lg px-8 py-4 transform hover:scale-105 transition-all duration-300 shadow-2xl">
+          <CTAButton 
+            onClick={() => router.push('/contact')}
+            className="text-lg px-8 py-4 transform hover:scale-105 transition-all duration-300 shadow-2xl"
+          >
             {heroContent[currentSlide].cta}
           </CTAButton>
         </div>

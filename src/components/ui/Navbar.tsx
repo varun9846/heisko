@@ -1,13 +1,16 @@
+"use client"
 import React from "react";
 import { Button } from "@/components/ui/button";
 import "../../app/globals.css";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 // Navbar component props (currently none needed)
 type NavbarProps = Record<string, never>;
 
 // Responsive navigation bar with logo, links, and CTA
 export function Navbar({ }: NavbarProps) {
+  const router = useRouter();
   return (
     <nav className="w-full bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between h-20">
@@ -44,10 +47,9 @@ export function Navbar({ }: NavbarProps) {
               <div className="px-4 py-2 border-b border-gray-100">
                 <h3 className="font-semibold text-gray-900">IFPD Series</h3>
               </div>
-              <Link href="/ifpd/rk3588" className="block px-4 py-3 text-orange-600 hover:bg-gray-100 font-medium transition-colors" role="menuitem">
+              {/* <Link href="/ifpd/rk3588" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">
                 RK3588
-                <span className="absolute right-4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-orange-500 rounded-full"></span>
-              </Link>
+              </Link> */}
               <Link href="/ifpd/adv311d2" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">ADV311D2</Link>
               <Link href="/ifpd/t982" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">T982</Link>
               <Link href="/ifpd/adv100" className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors" role="menuitem">ADV100</Link>
@@ -95,7 +97,7 @@ export function Navbar({ }: NavbarProps) {
               tabIndex={-1}
             >
 
-              <Link href="/smart-solutions/smart-blackboard-m86lb" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Smart Blackboard M86LB</Link>
+              {/* <Link href="/smart-solutions/smart-blackboard-m86lb" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Smart Blackboard M86LB</Link> */}
               <Link href="/smart-solutions/smart-blackboard-m86" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Smart Blackboard M86</Link>
               <Link href="/smart-solutions/smart-touch-table" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Smart Touch Table</Link>
               <Link href="/smart-solutions/smart-lifting-touch-table" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Smart Lifting Touch Table</Link>
@@ -133,7 +135,7 @@ export function Navbar({ }: NavbarProps) {
         </div>
         {/* CTA Button */}
         <div className="flex items-center">
-          <Button className="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2 rounded-full shadow transition-colors">
+          <Button onClick={() => router.push('/contact')} className="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2 rounded-full shadow transition-colors">
             Get Started
           </Button>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { Button } from './button'
+import { useRouter } from 'next/navigation'
 
 interface ProductHeroProps {
   title: string
@@ -13,6 +14,8 @@ interface ProductHeroProps {
  * Features a bold red theme with industry-leading specs and a clean CTA section
  */
 export function ProductHero({ title, description, image }: ProductHeroProps) {
+  const router = useRouter();
+  
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gray-50">
       {/* Background Pattern */}
@@ -82,10 +85,17 @@ export function ProductHero({ title, description, image }: ProductHeroProps) {
               <h2 className="text-2xl font-semibold text-gray-900 mb-2">Ready to Transform Your Workspace?</h2>
               <p className="text-gray-600 mb-4">Experience the difference that Heisko displays can make for your business. Get started with a free consultation and demo today.</p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 text-lg font-semibold rounded-lg shadow-md hover:shadow-red-500/30 transition-all duration-300">
+                <Button 
+                  onClick={() => router.push('/contact')}
+                  className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 text-lg font-semibold rounded-lg shadow-md hover:shadow-red-500/30 transition-all duration-300"
+                >
                   Schedule Free Demo
                 </Button>
-                <Button variant="outline" className="border-2 border-red-600 hover:border-red-700 text-red-600 hover:text-red-700 px-6 py-3 text-lg font-semibold rounded-lg transition-all duration-300">
+                <Button 
+                  onClick={() => router.push('/contact')}
+                  variant="outline" 
+                  className="border-2 border-red-600 hover:border-red-700 text-red-600 hover:text-red-700 px-6 py-3 text-lg font-semibold rounded-lg transition-all duration-300"
+                >
                   View Specifications
                 </Button>
               </div>
