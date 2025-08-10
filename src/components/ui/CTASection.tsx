@@ -1,9 +1,13 @@
+"use client"
 import React from "react";
 import { ArrowRight, Phone, Mail, MapPin } from "lucide-react";
 import { CTAButton } from "./CTAButton";
+import { useRouter } from "next/navigation";
 
 // Enhanced call-to-action section with animations and modern design
 export function CTASection() {
+  const router = useRouter();
+  
   return (
     <section className="py-24 px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
       {/* Background Decorative Elements with Animation */}
@@ -30,11 +34,17 @@ export function CTASection() {
 
         {/* CTA Buttons with Hover Effects */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
-          <CTAButton className="text-lg px-12 py-5 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
+          <CTAButton 
+            onClick={() => router.push('/contact')}
+            className="text-lg px-12 py-5 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
+          >
             <span>Get Started Now</span>
             <ArrowRight className="w-6 h-6 ml-2 inline-block" />
           </CTAButton>
-          <button className="px-12 py-5 border-2 border-red-500/50 text-white font-semibold rounded-xl hover:bg-red-500/10 transition-all duration-300 transform hover:scale-105">
+          <button 
+            onClick={() => router.push('/contact')}
+            className="px-12 py-5 border-2 border-red-500/50 text-white font-semibold rounded-xl hover:bg-red-500/10 transition-all duration-300 transform hover:scale-105"
+          >
             <span>Request a Demo</span>
           </button>
         </div>

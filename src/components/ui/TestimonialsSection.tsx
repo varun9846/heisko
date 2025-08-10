@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import { Star, Quote, ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 // Enhanced testimonial data with more details
 const testimonials = [
@@ -70,6 +71,7 @@ const stats = [
 ];
 
 export default function TestimonialsSection() {
+  const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -298,10 +300,16 @@ export default function TestimonialsSection() {
             Get started with a free consultation today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-red-600 text-white rounded-full font-semibold hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl transform hover:scale-105">
+            <button 
+              onClick={() => router.push('/contact')}
+              className="px-8 py-4 bg-red-600 text-white rounded-full font-semibold hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
               Schedule Free Demo
             </button>
-            <button className="px-8 py-4 border-2 border-red-600 text-red-600 rounded-full font-semibold hover:bg-red-50 transition-colors">
+            <button 
+              onClick={() => router.push('/contact')}
+              className="px-8 py-4 border-2 border-red-600 text-red-600 rounded-full font-semibold hover:bg-red-50 transition-colors"
+            >
               View Case Studies
             </button>
           </div>

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useRouter } from 'next/navigation'
 import { ProductHero } from '@/components/ui/ProductHero'
 import { ProductFeatures } from '@/components/ui/ProductFeatures'
 import { ProductGallery } from '@/components/ui/ProductGallery'
@@ -13,6 +14,7 @@ import { IFPDADV100, IFPDADV100Response } from '@/lib/types'
  * Features advanced ADV100 technology and premium-grade capabilities
  */
 export default function IFPDADV100Page() {
+    const router = useRouter();
     const [products, setProducts] = useState<IFPDADV100[]>([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
@@ -174,10 +176,16 @@ export default function IFPDADV100Page() {
                         collaboration capabilities, and premium features for modern workplaces.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-delay-2">
-                        <button className="bg-white text-red-600 hover:bg-red-50 px-8 py-4 text-lg font-semibold rounded-xl shadow-md hover:shadow-red-500/30 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300">
+                        <button 
+                            onClick={() => router.push('/contact')}
+                            className="bg-white text-red-600 hover:bg-red-50 px-8 py-4 text-lg font-semibold rounded-xl shadow-md hover:shadow-red-500/30 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300"
+                        >
                             Get ADV100 Quote
                         </button>
-                        <button className="border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-white">
+                        <button 
+                            onClick={() => router.push('/contact')}
+                            className="border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-white"
+                        >
                             Schedule Premium Demo
                         </button>
                     </div>

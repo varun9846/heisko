@@ -389,12 +389,12 @@ export default function AboutPage() {
                   <h3 className="text-2xl font-black text-gray-800 mb-4">{product.title}</h3>
                   <p className="text-gray-700 leading-relaxed mb-6 flex-grow">{product.description}</p>
                   
-                  <div className="flex items-center text-red-600 font-bold group-hover:translate-x-2 transition-transform duration-300">
+                  {/* <div className="flex items-center text-red-600 font-bold group-hover:translate-x-2 transition-transform duration-300">
                     <span className={`text-transparent bg-clip-text bg-gradient-to-r ${product.color}`}>
                       Explore Technology
                     </span>
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform duration-300" />
-                  </div>
+                  </div> */}
                 </div>
               </div>
             ))}
