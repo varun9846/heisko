@@ -173,7 +173,7 @@ export function FeaturesSection() {
                     </div>
                   </div>
                   <button 
-                    onClick={() => router.push('/contact')}
+                    onClick={() => router.push('/about')}
                     className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
                     <span>Learn More</span>
@@ -249,7 +249,7 @@ export function FeaturesSection() {
               {/* Learn More Button */}
               <div className="flex items-center justify-between">
                 <button 
-                  onClick={() => router.push('/contact')}
+                  onClick={() => router.push('/about')}
                   className="flex items-center gap-2 text-red-600 font-semibold hover:text-red-700 transition-colors group-hover:gap-3 duration-300"
                 >
                   <span>Learn More</span>
