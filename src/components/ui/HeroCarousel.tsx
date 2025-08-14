@@ -7,15 +7,15 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-// Carousel images with proper paths
+
 const images = [
-  "/images/carousel/image-1.jpg",
-  "/images/carousel/image-2.png",
-  "/images/carousel/image-4.png",
-  "/images/carousel/image-5.png",
-  "/images/carousel/image-6.png",
-  "/images/carousel/image8.png",
-  "/images/carousel/image9.png",
+  "https://rlljkvmptzljhonllyie.supabase.co/storage/v1/object/public/heisko-images/Heisko/5.png",
+  "https://rlljkvmptzljhonllyie.supabase.co/storage/v1/object/public/heisko-images/Heisko/1.png",
+  "https://rlljkvmptzljhonllyie.supabase.co/storage/v1/object/public/heisko-images/Heisko/2.png",
+  "https://rlljkvmptzljhonllyie.supabase.co/storage/v1/object/public/heisko-images/Heisko/3.png",
+  "https://rlljkvmptzljhonllyie.supabase.co/storage/v1/object/public/heisko-images/Heisko/4.png",
+  "https://rlljkvmptzljhonllyie.supabase.co/storage/v1/object/public/heisko-images/Heisko/6.png",
+  "https://rlljkvmptzljhonllyie.supabase.co/storage/v1/object/public/heisko-images/Heisko/0.png",
 ];
 
 // Hero content for each slide
@@ -117,7 +117,7 @@ export function HeroCarousel({}: HeroCarouselProps) {
               priority={idx === 0}
             />
             {/* Custom gradient overlay with #F20C1F theme */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#F20C1F]/90 via-[#F20C1F]/70 to-[#F20C1F]/50" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#F20C1F]/60 via-[#F20C1F]/40 to-[#F20C1F]/10" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           </div>
         ))}
@@ -196,7 +196,6 @@ export function HeroCarousel({}: HeroCarouselProps) {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-10 left-10 w-20 h-20 border-2 border-white/20 rounded-full animate-pulse" />
       <div className="absolute bottom-20 right-10 w-16 h-16 border-2 border-white/20 rounded-full animate-pulse delay-1000" />
       <div className="absolute top-1/2 right-20 w-12 h-12 bg-[#F20C1F]/30 rounded-full animate-bounce" />
     </section>
