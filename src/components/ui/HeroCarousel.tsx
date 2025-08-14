@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 // Carousel images with proper paths
 const images = [
   "/images/carousel/image-1.jpg",
-  "/images/carousel/image-2.jpg",
+  "/images/carousel/image-2.png",
   "/images/carousel/image-4.png",
   "/images/carousel/image-5.png",
   "/images/carousel/image-6.png",
