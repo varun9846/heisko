@@ -36,7 +36,7 @@ export default function IFP62SeriesPage() {
                     // Set the first product as hero product
                     if (response.data.data.length > 0) {
                         setHeroProduct(response.data.data[0])
-                      
+
                     }
                 } else {
                     setError('Failed to fetch IFP62 products')
@@ -157,24 +157,25 @@ export default function IFP62SeriesPage() {
                 />
             )}
 
+            {/* Products Gallery */}
+            {products.length > 0 && <ProductGallery products={products} />}
+
             {/* Features Section */}
             <ProductFeatures features={features} />
 
-            {/* Products Gallery */}
-            {products.length > 0 && <ProductGallery products={products} />}
 
             {/* Premium CTA Section */}
             <section className="py-24 bg-gradient-to-br from-red-600 via-red-700 to-red-800 relative overflow-hidden">
                 {/* Background Pattern */}
                 <div className="absolute inset-0 bg-black/10"></div>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
-                
+
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-8 animate-fade-in tracking-tight">
                         Elite Executive Experience
                     </h2>
                     <p className="text-xl md:text-2xl text-red-100 mb-12 max-w-5xl mx-auto animate-fade-in-delay leading-relaxed">
-                        Experience the pinnacle of interactive display technology with our IFP62 Elite Series. 
+                        Experience the pinnacle of interactive display technology with our IFP62 Elite Series.
                         Designed for Fortune 500 boardrooms, government headquarters, and ultra-secure corporate environments.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-8 justify-center animate-fade-in-delay-2">
@@ -185,12 +186,12 @@ export default function IFP62SeriesPage() {
                             Contact Executive Sales
                         </button>
                     </div>
-                    
+
                     {/* Premium Badge */}
                     <div className="mt-12 animate-fade-in-delay-2">
                         <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm text-white rounded-full text-lg font-medium border border-white/20">
                             <svg className="w-6 h-6 mr-3 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z"/>
+                                <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z" />
                             </svg>
                             Elite Executive Series - Premium Technology
                         </div>

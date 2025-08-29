@@ -1,320 +1,534 @@
 "use client"
-import React, { useState, useEffect } from "react";
-import { Monitor, Zap, Shield, Users, Smartphone, Globe, ArrowRight, CheckCircle, Star, Quote } from "lucide-react";
+import React, { useState, useEffect, useRef } from "react";
+import { Monitor, Zap, Shield, Users, Smartphone, Globe, ArrowRight, CheckCircle, Star, Play, TrendingUp, Award, Sparkles } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-// Enhanced feature data with more details
+// Enhanced feature data with red/white theme
 const features = [
   {
+    id: 1,
     icon: Monitor,
-    title: "Premium 4K Displays",
-    description: "Crystal-clear 4K resolution with HDR technology for stunning visual clarity and color accuracy that brings your content to life.",
-    benefits: ["True-to-life colors", "HDR support", "Anti-glare coating"],
-    color: "from-blue-500 to-blue-600",
-    bgColor: "from-blue-50 to-blue-100",
-    stats: "99.9% Color Accuracy",
-    rating: 5,
-    highlight: "Industry Leading"
+    title: "Ultra 4K Display",
+    shortDesc: "Crystal-clear 4K resolution",
+    description: "Experience unparalleled visual clarity with our premium 4K displays featuring HDR technology, 99.9% color accuracy, and anti-glare coating for professional excellence.",
+    benefits: ["True 4K Resolution", "HDR10+ Support", "Anti-Glare Coating", "Wide Color Gamut"],
+    stats: { value: "4K", unit: "UHD", metric: "Resolution" },
+    color: "from-red-500 to-red-600",
+    bgGlow: "shadow-red-500/20",
+    category: "Display",
+    popularity: 95,
+    isNew: false,
+    isPremium: true
   },
   {
+    id: 2,
     icon: Zap,
-    title: "Lightning Fast Performance",
-    description: "Ultra-fast response times and seamless connectivity with zero lag for professional workflows and gaming excellence.",
-    benefits: ["1ms response time", "120Hz refresh rate", "Zero latency"],
-    color: "from-yellow-500 to-orange-500",
-    bgColor: "from-yellow-50 to-orange-50",
-    stats: "1ms Response Time",
-    rating: 5,
-    highlight: "Ultra Fast"
+    title: "Lightning Performance",
+    shortDesc: "1ms ultra-fast response",
+    description: "Revolutionary performance with 1ms response time, 120Hz refresh rate, and zero-latency technology for seamless professional workflows and gaming.",
+    benefits: ["1ms Response Time", "120Hz Refresh", "Zero Latency", "GPU Acceleration"],
+    stats: { value: "1", unit: "ms", metric: "Response Time" },
+    color: "from-red-400 to-red-500",
+    bgGlow: "shadow-red-500/20",
+    category: "Performance",
+    popularity: 92,
+    isNew: true,
+    isPremium: true
   },
   {
+    id: 3,
     icon: Shield,
-    title: "Built to Last",
-    description: "Military-grade durability with extended warranties and robust construction designed for years of reliable performance.",
-    benefits: ["5-year warranty", "Military-grade", "Dust resistant"],
-    color: "from-green-500 to-emerald-600",
-    bgColor: "from-green-50 to-emerald-50",
-    stats: "5-Year Warranty",
-    rating: 5,
-    highlight: "Military Grade"
+    title: "Military-Grade Build",
+    shortDesc: "Built to last forever",
+    description: "Uncompromising durability with military-grade construction, 5-year warranty, and rigorous testing for long-lasting professional reliability.",
+    benefits: ["5-Year Warranty", "Military Standard", "Dust Resistant", "Drop Protection"],
+    stats: { value: "5", unit: "yrs", metric: "Warranty" },
+    color: "from-red-600 to-red-700",
+    bgGlow: "shadow-red-600/20",
+    category: "Durability",
+    popularity: 89,
+    isNew: false,
+    isPremium: true
   },
   {
+    id: 4,
     icon: Users,
-    title: "Collaboration Ready",
-    description: "Multi-user support with interactive features and wireless casting for seamless team collaboration and presentations.",
-    benefits: ["Multi-touch support", "Wireless casting", "Screen sharing"],
-    color: "from-purple-500 to-violet-600",
-    bgColor: "from-purple-50 to-violet-50",
-    stats: "10-Point Touch",
-    rating: 5,
-    highlight: "Team Focused"
+    title: "Team Collaboration",
+    shortDesc: "Multi-user interaction",
+    description: "Advanced collaboration features with 10-point multi-touch, wireless casting, and real-time screen sharing for seamless teamwork.",
+    benefits: ["10-Point Touch", "Wireless Casting", "Screen Sharing", "Multi-User Mode"],
+    stats: { value: "10", unit: "pts", metric: "Touch Points" },
+    color: "from-red-500 to-red-600",
+    bgGlow: "shadow-red-500/20",
+    category: "Collaboration",
+    popularity: 88,
+    isNew: true,
+    isPremium: false
   },
   {
+    id: 5,
     icon: Smartphone,
-    title: "Mobile Integration",
-    description: "Seamless connectivity with all your devices through advanced wireless technology and universal compatibility.",
-    benefits: ["Universal compatibility", "Wireless charging", "Bluetooth 5.0"],
-    color: "from-pink-500 to-rose-600",
-    bgColor: "from-pink-50 to-rose-50",
-    stats: "Universal Compatible",
-    rating: 5,
-    highlight: "Universal"
+    title: "Universal Connect",
+    shortDesc: "All devices, one display",
+    description: "Seamless integration with all devices through universal compatibility, wireless charging dock, and Bluetooth 5.0 connectivity.",
+    benefits: ["Universal Compatible", "Wireless Charging", "Bluetooth 5.0", "Quick Connect"],
+    stats: { value: "100", unit: "%", metric: "Compatible" },
+    color: "from-red-400 to-red-600",
+    bgGlow: "shadow-red-500/20",
+    category: "Connectivity",
+    popularity: 91,
+    isNew: false,
+    isPremium: false
   },
   {
+    id: 6,
     icon: Globe,
     title: "Global Support",
-    description: "Worldwide customer support network with 24/7 assistance and local service centers for peace of mind.",
-    benefits: ["24/7 support", "Global coverage", "Local service"],
-    color: "from-indigo-500 to-blue-600",
-    bgColor: "from-indigo-50 to-blue-50",
-    stats: "24/7 Support",
-    rating: 5,
-    highlight: "Worldwide"
+    shortDesc: "24/7 worldwide assistance",
+    description: "Comprehensive global support network with 24/7 assistance, local service centers, and multilingual customer care worldwide.",
+    benefits: ["24/7 Support", "Global Network", "Local Service", "Multi-Language"],
+    stats: { value: "24", unit: "/7", metric: "Support" },
+    color: "from-red-600 to-red-700",
+    bgGlow: "shadow-red-600/20",
+    category: "Support",
+    popularity: 94,
+    isNew: false,
+    isPremium: true
   }
 ];
 
-// Enhanced stats with animations
-const stats = [
-  { value: "4K", label: "Resolution", icon: "🎯", description: "Ultra HD clarity" },
-  { value: "1ms", label: "Response Time", icon: "⚡", description: "Lightning fast" },
-  { value: "5yr", label: "Warranty", icon: "🛡️", description: "Peace of mind" },
-  { value: "99%", label: "Satisfaction", icon: "😊", description: "Customer love" }
+// Performance metrics with red theme
+const performanceMetrics = [
+  { label: "Color Accuracy", value: 99.9, unit: "%", icon: "🎯" },
+  { label: "Response Time", value: 1, unit: "ms", icon: "⚡" },
+  { label: "Customer Rating", value: 4.9, unit: "/5", icon: "⭐" },
+  { label: "Uptime", value: 99.9, unit: "%", icon: "🔄" }
 ];
 
+// Floating particle component
+const FloatingParticle = ({ delay, duration = 4 }: { delay: number, duration?: number }) => {
+  return (
+    <div 
+      className="absolute w-1 h-1 bg-red-400/60 rounded-full animate-ping"
+      style={{
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        animationDelay: `${delay}s`,
+        animationDuration: `${duration}s`
+      }}
+    />
+  );
+};
+
+// Interactive feature card component
+const FeatureCard = ({ feature, index, isHovered, onHover, onLeave }: {
+  feature: typeof features[0],
+  index: number,
+  isHovered: boolean,
+  onHover: () => void,
+  onLeave: () => void
+}) => {
+  const router = useRouter();
+
+  return (
+    <div 
+      className={`group relative transform transition-all duration-700 cursor-pointer ${
+        isHovered ? 'scale-105 -translate-y-8 z-20' : 'hover:scale-102 hover:-translate-y-2'
+      }`}
+      onMouseEnter={onHover}
+      onMouseLeave={onLeave}
+      style={{ animationDelay: `${index * 0.1}s` }}
+    >
+      {/* Glow effect */}
+      <div className={`absolute -inset-1 bg-gradient-to-r ${feature.color} rounded-3xl blur-lg opacity-0 ${isHovered ? 'opacity-60' : 'group-hover:opacity-30'} transition-all duration-500`} />
+      
+      {/* Main card */}
+      <div className="relative bg-white shadow-xl border border-gray-200 hover:border-red-300 rounded-3xl p-8 transition-all duration-500">
+        
+        {/* Card header */}
+        <div className="flex justify-between items-start mb-6">
+          <div className="relative">
+            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center shadow-lg ${isHovered ? 'animate-pulse' : ''}`}>
+              <feature.icon className="w-8 h-8 text-white" />
+            </div>
+            {feature.isNew && (
+              <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center animate-bounce">
+                <Sparkles className="w-3 h-3 text-white" />
+              </div>
+            )}
+          </div>
+          
+          <div className="text-right">
+            <div className="flex items-center gap-1 mb-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-3 h-3 fill-red-400 text-red-400" />
+              ))}
+            </div>
+            <div className="text-xs text-gray-600">{feature.category}</div>
+          </div>
+        </div>
+
+        {/* Premium badge */}
+        {feature.isPremium && (
+          <div className="inline-flex items-center px-3 py-1 bg-red-50 border border-red-200 rounded-full mb-4">
+            <Award className="w-3 h-3 text-red-500 mr-1" />
+            <span className="text-red-500 text-xs font-medium">Premium</span>
+          </div>
+        )}
+
+        {/* Content */}
+        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors duration-300">
+          {feature.title}
+        </h3>
+        
+        <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+          {feature.shortDesc}
+        </p>
+
+        {/* Stats display */}
+        <div className="bg-red-50 rounded-xl p-4 mb-6 border border-red-100">
+          <div className="text-center">
+            <div className="text-2xl font-bold text-gray-900">
+              {feature.stats.value}<span className="text-red-500">{feature.stats.unit}</span>
+            </div>
+            <div className="text-xs text-gray-600">{feature.stats.metric}</div>
+          </div>
+        </div>
+
+        {/* Popularity bar */}
+        <div className="mb-6">
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-xs text-gray-600">Popularity</span>
+            <span className="text-xs text-gray-700">{feature.popularity}%</span>
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-1.5">
+            <div 
+              className={`h-1.5 rounded-full bg-gradient-to-r ${feature.color} transition-all duration-1000`}
+              style={{ width: isHovered ? `${feature.popularity}%` : '0%' }}
+            />
+          </div>
+        </div>
+
+        {/* Benefits list - shown on hover */}
+        <div className={`space-y-2 mb-6 transition-all duration-500 ${isHovered ? 'opacity-100 max-h-32' : 'opacity-0 max-h-0'} overflow-hidden`}>
+          {feature.benefits.slice(0, 3).map((benefit, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <CheckCircle className="w-3 h-3 text-red-500 flex-shrink-0" />
+              <span className="text-xs text-gray-700">{benefit}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <button 
+          onClick={() => router.push('/about')}
+          className={`w-full flex items-center justify-between px-4 py-3 bg-red-50 hover:bg-red-100 border border-red-200 hover:border-red-300 rounded-xl transition-all duration-300 group/btn ${isHovered ? 'bg-red-100 border-red-300' : ''}`}
+        >
+          <span className="text-sm font-medium text-gray-700 group-hover/btn:text-red-700">Explore</span>
+          <ArrowRight className="w-4 h-4 text-gray-600 group-hover/btn:text-red-500 group-hover/btn:translate-x-1 transition-all duration-300" />
+        </button>
+
+        {/* Hover overlay */}
+        <div className={`absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent rounded-3xl opacity-0 ${isHovered ? 'opacity-100' : ''} transition-opacity duration-500 pointer-events-none`} />
+      </div>
+    </div>
+  );
+};
+
+// Performance metric component
+const MetricCard = ({ metric, index }: { metric: typeof performanceMetrics[0], index: number }) => {
+  const [count, setCount] = useState(0);
+  const targetValue = metric.value;
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const increment = targetValue / 60;
+      const counter = setInterval(() => {
+        setCount(prev => {
+          if (prev >= targetValue) {
+            clearInterval(counter);
+            return targetValue;
+          }
+          return Math.min(prev + increment, targetValue);
+        });
+      }, 20);
+    }, index * 200);
+
+    return () => clearTimeout(timer);
+  }, [targetValue, index]);
+
+  return (
+    <div className="relative group">
+      <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-red-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="relative bg-white shadow-lg border border-red-100 rounded-2xl p-6 hover:border-red-300 hover:shadow-xl transition-all duration-500">
+        <div className="text-center">
+          <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">
+            {metric.icon}
+          </div>
+          <div className="text-3xl font-bold text-gray-900 mb-2">
+            {count.toFixed(metric.unit === "/5" ? 1 : metric.unit === "%" ? 1 : 0)}
+            <span className="text-red-500 text-lg ml-1">{metric.unit}</span>
+          </div>
+          <div className="text-gray-600 text-sm font-medium">{metric.label}</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Main component
 export function FeaturesSection() {
   const router = useRouter();
-  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
-  const [activeFeature, setActiveFeature] = useState(0);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [featuredIndex, setFeaturedIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
-  // Auto-rotate featured feature
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveFeature((prev) => (prev + 1) % features.length);
-    }, 4000);
+      setFeaturedIndex(prev => (prev + 1) % features.length);
+    }, 5000);
     
     return () => clearInterval(interval);
   }, []);
 
+  const featuredFeature = features[featuredIndex];
+
   return (
-    <section className="relative py-24 px-6 bg-gradient-to-br from-slate-50 via-white to-slate-100 overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-red-500/5 to-red-600/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-500/5 to-purple-600/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-green-500/3 to-blue-600/8 rounded-full blur-3xl animate-pulse delay-500"></div>
+    <section ref={sectionRef} className="relative py-32 px-6 bg-white overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0">
+        {/* Base background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white via-red-50 to-white" />
+        
+        {/* Animated blobs */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-red-100 to-red-200 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-red-200 to-red-300 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-red-50 to-red-100 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
+        </div>
+        
+        {/* Floating particles */}
+        <div className="absolute inset-0">
+          {Array.from({ length: 30 }, (_, i) => (
+            <FloatingParticle key={i} delay={i * 0.2} />
+          ))}
+        </div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto">
-        {/* Enhanced Section Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center px-4 py-2 bg-red-50 rounded-full mb-6">
-            <span className="text-red-600 font-semibold text-sm">FEATURES</span>
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Hero header */}
+        <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+          <div className="inline-flex items-center px-6 py-3 bg-red-100 border border-red-200 rounded-full mb-8">
+            <TrendingUp className="w-5 h-5 text-red-600 mr-3" />
+            <span className="text-red-600 font-semibold">PREMIUM FEATURES</span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Why Choose{" "}
-            <span className="relative">
-              <span className="text-red-600">Heisko</span>
-              <div className="absolute -bottom-2 left-0 w-full h-3 bg-red-100 -skew-x-12 opacity-60"></div>
-            </span>{" "}
-            ?
+          
+          <h2 className="text-6xl lg:text-7xl font-black mb-8">
+            <span className="bg-gradient-to-r from-gray-800 via-gray-900 to-gray-800 bg-clip-text text-transparent">
+              Why Choose
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">
+              Heisko?
+            </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Experience the perfect blend of innovation, quality, and performance with our premium display solutions designed for modern professionals.
+          
+          <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+            Experience the perfect fusion of cutting-edge technology, premium quality, and unmatched performance 
+            that transforms how professionals work and collaborate.
           </p>
         </div>
 
-        {/* Featured Feature Carousel */}
-        <div className="relative mb-20">
-          <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-100">
-            <div className="flex flex-col lg:flex-row items-center gap-8">
-              {/* Featured Content */}
-              <div className="flex-1">
+        {/* Featured showcase */}
+        <div className={`mb-24 transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+          <div className="relative bg-white shadow-2xl border border-red-100 rounded-3xl p-8 lg:p-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Featured content */}
+              <div>
                 <div className="flex items-center gap-4 mb-6">
-                  <Quote className="w-12 h-12 text-red-500/30" />
-                  <div className="flex space-x-1">
-                    {[...Array(features[activeFeature].rating)].map((_, i) => (
-                      <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
-                    ))}
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${featuredFeature.color} flex items-center justify-center shadow-lg`}>
+                    <featuredFeature.icon className="w-8 h-8 text-white" />
                   </div>
-                  <div className="ml-auto">
-                    <span className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-red-50 to-red-100 text-red-600 rounded-full text-sm font-semibold">
-                      {features[activeFeature].highlight}
-                    </span>
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-red-600 text-sm font-medium">FEATURED</span>
+                      {featuredFeature.isNew && (
+                        <span className="px-2 py-1 bg-red-500 text-white text-xs rounded-full">NEW</span>
+                      )}
+                    </div>
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-red-400 text-red-400" />
+                      ))}
+                    </div>
                   </div>
                 </div>
                 
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                  {features[activeFeature].title}
+                <h3 className="text-4xl font-bold text-gray-900 mb-4">
+                  {featuredFeature.title}
                 </h3>
                 
-                <p className="text-xl text-gray-600 leading-relaxed mb-6">
-                  {features[activeFeature].description}
+                <p className="text-gray-700 text-lg leading-relaxed mb-8">
+                  {featuredFeature.description}
                 </p>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  {features[activeFeature].benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  {featuredFeature.benefits.map((benefit, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
                       <span className="text-gray-700 font-medium">{benefit}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="flex items-center justify-between">
-                                     <div className="flex items-center gap-4">
-                     <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${features[activeFeature].bgColor} flex items-center justify-center shadow-lg`}>
-                       {React.createElement(features[activeFeature].icon, {
-                         className: `w-8 h-8 bg-gradient-to-br ${features[activeFeature].color} bg-clip-text text-transparent`
-                       })}
-                     </div>
-                    <div>
-                      <div className="text-sm text-gray-500">Key Specification</div>
-                      <div className="text-lg font-bold text-gray-900">{features[activeFeature].stats}</div>
+                <div className="flex items-center gap-6">
+                  <div className="flex items-center gap-4">
+                    <div className="text-3xl font-bold text-gray-900">
+                      {featuredFeature.stats.value}
+                      <span className="text-red-500">{featuredFeature.stats.unit}</span>
                     </div>
+                    <div className="text-sm text-gray-600">{featuredFeature.stats.metric}</div>
                   </div>
+                  
                   <button 
                     onClick={() => router.push('/about')}
-                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-red-500/25 transform hover:scale-105"
                   >
-                    <span>Learn More</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <Play className="w-4 h-4" />
+                    <span>Interactive Demo</span>
                   </button>
                 </div>
               </div>
+
+              {/* Visual showcase */}
+              <div className="relative">
+                <div className="aspect-square bg-gradient-to-br from-red-50 to-red-100 rounded-2xl overflow-hidden border border-red-200">
+                  <img
+                    src="https://rlljkvmptzljhonllyie.supabase.co/storage/v1/object/public/interactivedisplay-ifp52/ifp52/IND52-4.jpg"
+                    alt={featuredFeature.title}
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                    style={{ zIndex: 1 }}
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${featuredFeature.color} opacity-20`} style={{ zIndex: 2 }} />
+                  
+                  {/* Floating stats */}
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg z-10">
+                    <div className="text-gray-900 font-bold">{featuredFeature.stats.value}{featuredFeature.stats.unit}</div>
+                    <div className="text-gray-600 text-xs">{featuredFeature.stats.metric}</div>
+                  </div>
+                  
+                  {/* <div className="absolute bottom-4 right-4 bg-red-500/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg z-10">
+                    <div className="text-white text-sm font-medium">Live Preview</div>
+                  </div> */}
+                </div>
+              </div>
+            </div>
+
+            {/* Feature selector */}
+            <div className="flex justify-center mt-8">
+              <div className="flex gap-2">
+                {features.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setFeaturedIndex(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === featuredIndex 
+                        ? "bg-red-500 w-8" 
+                        : "bg-gray-300 hover:bg-red-300"
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
+        </div>
 
-          {/* Carousel Controls */}
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <div className="flex space-x-2">
-              {features.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveFeature(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === activeFeature ? "bg-red-500 w-8" : "bg-gray-300"
-                  }`}
-                />
+        {/* Features grid */}
+        <div className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-24 transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+          {features.map((feature, index) => (
+            <FeatureCard
+              key={feature.id}
+              feature={feature}
+              index={index}
+              isHovered={hoveredCard === index}
+              onHover={() => setHoveredCard(index)}
+              onLeave={() => setHoveredCard(null)}
+            />
+          ))}
+        </div>
+
+        {/* Performance metrics */}
+        <div className={`mb-24 transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+          <div className="bg-gradient-to-r from-red-500 to-red-600 rounded-3xl p-12 shadow-2xl">
+            <div className="text-center mb-12">
+              <h3 className="text-4xl font-bold text-white mb-4">
+                Industry-Leading Performance
+              </h3>
+              <p className="text-red-100 text-lg">Numbers that define excellence in display technology</p>
+            </div>
+            
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+              {performanceMetrics.map((metric, index) => (
+                <MetricCard key={metric.label} metric={metric} index={index} />
               ))}
             </div>
           </div>
         </div>
 
-        {/* Enhanced Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-20">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className={`group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 cursor-pointer ${
-                hoveredFeature === index ? 'scale-105' : ''
-              }`}
-              onMouseEnter={() => setHoveredFeature(index)}
-              onMouseLeave={() => setHoveredFeature(null)}
-            >
-              {/* Card Header */}
-              <div className="flex justify-between items-start mb-6">
-                <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${feature.bgColor} flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-300`}>
-                  <feature.icon className={`w-10 h-10 bg-gradient-to-br ${feature.color} bg-clip-text text-transparent`} />
-                </div>
-                <div className="flex space-x-1">
-                  {[...Array(feature.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-              </div>
-
-              {/* Stats Badge */}
-              <div className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-gray-50 to-gray-100 rounded-full mb-4">
-                <span className="text-xs font-semibold text-gray-700">{feature.stats}</span>
-              </div>
-
-              {/* Content */}
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-red-600 transition-colors duration-300">
-                {feature.title}
+        {/* Enhanced CTA */}
+        <div className={`text-center transition-all duration-1000 delay-900 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+          <div className="relative bg-white shadow-2xl border border-red-100 rounded-3xl p-12">
+            <div className="absolute inset-0 bg-gradient-to-r from-red-50/50 to-transparent rounded-3xl" />
+            
+            <div className="relative">
+              <h3 className="text-4xl font-bold text-gray-900 mb-6">
+                Ready to Transform Your Workspace?
               </h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                {feature.description}
+              <p className="text-gray-700 text-lg mb-8 max-w-3xl mx-auto">
+                Join thousands of professionals who have revolutionized their workflow with Heisko displays. 
+                Experience the difference that premium technology makes.
               </p>
-
-              {/* Benefits List */}
-              <div className="space-y-2 mb-6">
-                {feature.benefits.map((benefit, benefitIndex) => (
-                  <div key={benefitIndex} className="flex items-center gap-3">
-                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                    <span className="text-sm text-gray-600">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Learn More Button */}
-              <div className="flex items-center justify-between">
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
-                  onClick={() => router.push('/about')}
-                  className="flex items-center gap-2 text-red-600 font-semibold hover:text-red-700 transition-colors group-hover:gap-3 duration-300"
+                  onClick={() => router.push('/contact')}
+                  className="group px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-xl font-bold transition-all duration-300 shadow-2xl shadow-red-500/25 transform hover:scale-105"
                 >
-                  <span>Learn More</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <span className="flex items-center gap-3">
+                    Start Your Journey
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  </span>
                 </button>
                 
-                {/* Decorative Element */}
-                <div className="w-12 h-1 bg-gradient-to-r from-red-500 to-red-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                <button 
+                  onClick={() => router.push('/contact')}
+                  className="px-8 py-4 border-2 border-red-500 text-red-600 font-bold rounded-xl hover:bg-red-50 hover:border-red-600 transition-all duration-300 transform hover:scale-105"
+                >
+                  Schedule Demo
+                </button>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Enhanced Stats Section */}
-        <div className="bg-gradient-to-r from-red-500 to-red-600 rounded-3xl p-8 md:p-12 shadow-2xl mb-20">
-          <div className="text-center mb-8">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">
-              Industry-Leading Specifications
-            </h3>
-            <p className="text-red-100">Numbers that define excellence</p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className="text-4xl mb-2 group-hover:scale-110 transition-transform duration-300">
-                  {stat.icon}
-                </div>
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2 group-hover:scale-110 transition-transform duration-300">
-                  {stat.value}
-                </div>
-                <div className="text-red-100 font-medium mb-1">{stat.label}</div>
-                <div className="text-red-200 text-sm">{stat.description}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Enhanced CTA Section */}
-        <div className="text-center">
-          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-100">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Ready to Transform Your Workspace?
-            </h3>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Experience the difference that Heisko displays can make for your business. 
-              Get started with a free consultation and demo today.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={() => router.push('/contact')}
-                className="px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-              >
-                Schedule Free Demo
-              </button>
-              <button 
-                onClick={() => router.push('/contact')}
-                className="px-8 py-4 border-2 border-red-600 text-red-600 rounded-full font-semibold hover:bg-red-50 transition-all duration-300"
-              >
-                View Specifications
-              </button>
             </div>
           </div>
         </div>
       </div>
     </section>
   );
-} 
+}
