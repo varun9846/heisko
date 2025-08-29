@@ -150,11 +150,13 @@ export default function IFP52SeriesPage() {
         />
       )}
 
-      {/* Features Section */}
-      <ProductFeatures features={features} />
+
 
       {/* Products Gallery */}
       {products.length > 0 && <ProductGallery products={products} />}
+      {/* Features Section */}
+      <ProductFeatures features={features} />
+
 
       {/* CTA Section */}
       <section className="py-20 bg-red-600">

@@ -24,7 +24,7 @@ export default function IFP51SeriesPage() {
       try {
         setLoading(true)
         const response = await axios.get<IFP51SeriesResponse>('/api/interactive-display/ifp51-series')
-        
+
         if (response.data.success) {
           setProducts(response.data.data)
           // Set the first product as hero product
@@ -127,7 +127,7 @@ export default function IFP51SeriesPage() {
           </div>
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Oops! Something went wrong</h2>
           <p className="text-gray-600 mb-6">{error}</p>
-          <button 
+          <button
             onClick={() => window.location.reload()}
             className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
           >
@@ -148,12 +148,13 @@ export default function IFP51SeriesPage() {
           image={heroProduct.image}
         />
       )}
+      {/* Products Gallery */}
+      {products.length > 0 && <ProductGallery products={products} />}
 
       {/* Features Section */}
       <ProductFeatures features={features} />
 
-      {/* Products Gallery */}
-      {products.length > 0 && <ProductGallery products={products} />}
+
 
       {/* CTA Section */}
       <section className="py-20 bg-red-600">
@@ -162,7 +163,7 @@ export default function IFP51SeriesPage() {
             Experience the Future of Interactive Displays
           </h2>
           <p className="text-xl text-red-100 mb-8 max-w-3xl mx-auto animate-fade-in-delay">
-            Discover the power of IFP51 series with cutting-edge technology and enterprise-grade features. 
+            Discover the power of IFP51 series with cutting-edge technology and enterprise-grade features.
             Transform your workspace with the most advanced interactive displays available.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-2">

@@ -1,11 +1,19 @@
+"use client"
 import React from 'react'
 import Image from 'next/image'
 import { Button } from './button'
 import { useRouter } from 'next/navigation'
 import { InteractiveDisplayIFP50, InteractiveDisplayIFP51, InteractiveDisplayIFP52, InteractiveDisplayIFP62, IFPDRK3588, IFPDADV311d2, IFPDT982, IFPDADV100, SmartBlackboardM86LB, SmartBlackboardM86, SmartTouchTable, SmartLiftingTouchTable, SmartTVLTS, IWBS82, IWBP82, ASFloorKiosk, PortablePanel, AMeetingPod, ATVStand, OPS1 } from '@/lib/types'
+import { SkeletonLoader } from './SkeletonLoader'
+import { getProductSeries, getProductPath, groupProductsBySeries, getCacheBustedImageUrl, forceDataRefresh } from '@/utils/api'
 
 interface ProductGalleryProps {
   products: (InteractiveDisplayIFP50 | InteractiveDisplayIFP51 | InteractiveDisplayIFP52 | InteractiveDisplayIFP62 | IFPDRK3588 | IFPDADV311d2 | IFPDT982 | IFPDADV100 | SmartBlackboardM86LB | SmartBlackboardM86 | SmartTouchTable | SmartLiftingTouchTable | SmartTVLTS | IWBS82 | IWBP82 | ASFloorKiosk | PortablePanel | AMeetingPod | ATVStand | OPS1)[]
+  category?: string
+  loading?: boolean
+  error?: string | null
+  onRetry?: () => void
+  onRefresh?: () => void
 }
 
 /**
@@ -13,115 +21,172 @@ interface ProductGalleryProps {
  * Displays all products in a responsive grid with a bold red theme and modern styling
  * Supports IFP50, IFP51, IFP52, and IFP62 series products
  */
-export function ProductGallery({ products }: ProductGalleryProps) {
+export function ProductGallery({ products, category, loading = false, error = null, onRetry, onRefresh }: ProductGalleryProps) {
   const router = useRouter();
   
-  // Helper function to determine series from product title
-  const getSeriesBadge = (title: string) => {
-    if (title.includes('OPS') || title.includes('Open Pluggable')) return 'OPS Series'
-    if (title.includes('TV Stand') || title.includes('TV-Stand') || title.includes('Stand')) return 'TV Stand Series'
-    if (title.includes('Meeting Pod') || title.includes('Pod')) return 'Meeting Pod Series'
-    if (title.includes('Portable Panel') || title.includes('Panel')) return 'Portable Panel Series'
-    if (title.includes('Floor Kiosk') || title.includes('Kiosk')) return 'Floor Kiosk Series'
-    if (title.includes('SmartTVLTS') || title.includes('Smart TV LTS')) return 'SmartTVLTS Series'
-    if (title.includes('SmartLiftingTouchTable') || title.includes('Lifting Touch Table')) return 'SmartLiftingTouchTable Series'
-    if (title.includes('SmartTouchTable') || title.includes('Touch Table')) return 'SmartTouchTable Series'
-    if (title.includes('SmartBlackboardM86') || title.includes('M86')) return 'SmartBlackboardM86 Series'
-    if (title.includes('IWBP82') || title.includes('P-82')) return 'IWBP82 Series'
-    if (title.includes('IWBS82') || title.includes('S-82')) return 'IWBS82 Series'
-    if (title.includes('ADV100')) return 'ADV100 Series'
-    if (title.includes('T982')) return 'T982 Professional Series'
-    if (title.includes('ADV311D2')) return 'ADV311D2 Enterprise Series'
-    if (title.includes('RK3588')) return 'RK3588 Elite Series'
-    if (title.includes('IFP62')) return 'IFP62 Elite Series'
-    if (title.includes('IFP52')) return 'IFP52 Series'
-    if (title.includes('IFP51')) return 'IFP51 Series'
-    if (title.includes('M86LB')) return 'M86LB Series'
-    return 'IFP50 Series'
+  // Group products by series using utility function
+  // const groupedProducts = React.useMemo(() => {
+
+     console.log("products on ProductGallery------------",products);
+  //   return groupProductsBySeries(products);
+  // }, [products]);
+
+
+  const groupedProducts=products;
+  // Show loading skeleton if loading
+  if (loading) {
+    return (
+      <section className="relative w-full py-20 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-gray-900 mb-4">Our Interactive Display Solutions</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {category ? `${category} Products` : 'Tailored solutions for education, business, and engagement'}
+            </p>
+          </div>
+          <SkeletonLoader type="gallery" count={2} />
+        </div>
+      </section>
+    )
+  }
+
+  // Show error state if error exists
+  if (error && onRetry) {
+    return (
+      <section className="relative w-full py-20 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-gray-900 mb-4">Our Interactive Display Solutions</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {category ? `${category} Products` : 'Tailored solutions for education, business, and engagement'}
+            </p>
+          </div>
+          <div className="text-center py-12">
+            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Failed to Load Products</h3>
+            <p className="text-gray-600 mb-6">{error}</p>
+            <button
+              onClick={onRetry}
+              className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+      </section>
+    )
   }
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Interactive Display Models
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Choose from our comprehensive range of interactive displays designed for modern classrooms, boardrooms, and executive environments
+   <>
+       <section className="relative w-full py-20 bg-gradient-to-b from-white to-gray-50">
+       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+         <div className="text-center mb-16">
+           <h2 className="text-5xl font-bold text-gray-900 mb-4">Our Interactive Display Solutions</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            {category ? `${category} Products` : 'Tailored solutions for education, business, and engagement'}
           </p>
+          {!category && (
+            <p className="text-lg text-gray-500 mt-2">
+              {products.length} products across {groupedProducts.length} categories
+            </p>
+          )}
         </div>
-
-        {/* Products Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
-            <div
-              key={product.id}
-              className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-delay"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {/* Product Image */}
-              <div className="relative h-64 overflow-hidden">
-                <Image
-                  src={product.image}
-                  alt={product.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-red-600/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                {/* Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="inline-flex items-center px-3 py-1 bg-red-500 text-white text-sm font-medium rounded-full">
-                    {getSeriesBadge(product.title)}
-                  </span>
-                </div>
-
-                {/* <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Button className="bg-white text-red-600 hover:bg-red-600 hover:text-white px-6 py-3 rounded-lg font-semibold shadow-md transition-colors duration-300">
-                    View Details
-                  </Button>
-                </div> */}
-              </div>
-
-              {/* Product Info */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-red-600 transition-colors duration-300">
-                  {product?.title}
-                </h3>
-              
-                <p className="text-gray-600 mb-4  text-md">
-                  {product?.description}
-                </p>
-
-                {/* Action Buttons */}
-                <div className="flex gap-3">
-                  <Button 
-                    onClick={() => router.push('/contact')}
-                    className="flex-1 bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg font-medium transition-colors duration-300"
-                  >
-                    Get Quote
-                  </Button>
-                  <Button variant="outline" className="px-4 py-2 border-red-600 hover:border-red-700 text-red-600 hover:text-red-700 rounded-lg transition-colors duration-300">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                    </svg>
-                  </Button>
-                </div>
-              </div>
+        
+        {groupedProducts.length === 0 ? (
+          <div className="text-center py-12">
+            <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+              </svg>
             </div>
-          ))}
-        </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">No Products Found</h3>
+            <p className="text-gray-600">No products are currently available in this category.</p>
+          </div>
+        ) : (
+          groupedProducts.map((product, index) => {
+            const isEven = index % 2 === 0;
+            const productPath = getProductPath(product.title);
 
-        {/* Load More Button */}
-        <div className="text-center mt-12 animate-fade-in-delay-2">
-          <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-md hover:shadow-red-500/30 transition-all duration-300">
+            return (
+              <div
+                key={product.id}
+                className="w-full bg-white rounded-xl shadow-md overflow-hidden mb-12 last:mb-0 animate-fade-in"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-8 p-6 lg:p-12`}>
+                  {/* Text Section */}
+                  <div className="w-full lg:w-1/2 space-y-6">
+                    <span className="inline-flex items-center px-3 py-1 bg-red-100 text-red-600 rounded-full text-sm font-medium">
+                      {getProductSeries(product.title)}
+                    </span>
+                    <h3 className="text-3xl font-bold text-gray-900">{product.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {/* {product.description.substring(0, 250)}... */}
+                      {product.description}
+                    </p>
+                    <div className="flex gap-4">
+                      <Button
+                        onClick={() => router.push('/contact')}
+                        className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-full font-semibold shadow-md transition-all"
+                      >
+                        Learn More
+                      </Button>
+                      <Button
+                        onClick={() => router.push('/contact')}
+                        variant="outline"
+                        className="border-2 border-red-600 text-red-600 hover:bg-red-50 px-6 py-3 rounded-full font-semibold transition-all"
+                      >
+                        Quotation
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Image Section */}
+                  <div className="w-full lg:w-1/2 relative mt-8 lg:mt-0">
+                    <div className="relative w-full h-80 rounded-xl overflow-hidden shadow-lg">
+                      <Image
+                        src={getCacheBustedImageUrl(product.image)}
+                        alt={product.title}
+                        fill
+                        className="object-cover transition-transform duration-300 hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-red-600/20 to-transparent"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        )}
+        
+        <div className="text-center mt-12 space-y-4">
+          <Button 
+            onClick={() => router.push('/products')}
+            className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-full shadow-md hover:shadow-lg transition-all"
+          >
             View All Models
           </Button>
+          
+          {onRefresh && (
+            <div className="mt-4">
+              <Button 
+                onClick={onRefresh}
+                variant="outline"
+                className="border-2 border-red-600 text-red-600 hover:bg-red-50 px-6 py-2 rounded-full text-sm transition-all"
+              >
+                Refresh Data
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </section>
+   
+   </>
   )
 }

@@ -121,7 +121,7 @@ export function Navbar({ }: NavbarProps) {
               tabIndex={-1}
             >
 
-              <Link href="/accessories/floor-kiosk" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Floor Kiosk</Link>
+              {/* <Link href="/accessories/floor-kiosk" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Floor Kiosk</Link> */}
               <Link href="/accessories/portable-panel" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Portable Panel</Link>
               <Link href="/accessories/meeting-pod" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">Meeting Pod</Link>
               <Link href="/accessories/tv-stand" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" role="menuitem">TV-Stand</Link>

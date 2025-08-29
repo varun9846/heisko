@@ -16,12 +16,19 @@ export async function GET(request: NextRequest): Promise<NextResponse<IFPDADV100
       }
     })
 
-
-    // Return successful response with data
+    // Return successful response with data and cache-busting headers
     return NextResponse.json({
       success: true,
       data: products,
       message: `Successfully fetched ${products.length} IFPDADV100 series products`
+    }, {
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0',
+        'Last-Modified': new Date().toUTCString(),
+        'ETag': `"${Date.now()}"`
+      }
     })
 
   } catch (error) {
