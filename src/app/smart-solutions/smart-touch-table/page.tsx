@@ -160,25 +160,27 @@ export default function SmartTouchTablePage() {
                 />
             )}
 
+            {/* Products Gallery */}
+            {products.length > 0 && <ProductGallery products={products} />}
+
             {/* Advanced Features Section */}
             <ProductFeatures features={features} />
 
-            {/* Products Gallery */}
-            {products.length > 0 && <ProductGallery products={products} />}
+
 
             {/* Enhanced CTA Section with SmartTouchTable specific messaging */}
             <section className="py-24 bg-gradient-to-br from-red-600 to-red-800 relative overflow-hidden">
                 {/* Background Pattern */}
                 <div className="absolute inset-0 bg-black/10"></div>
                 <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 to-red-800/20"></div>
-                
+
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 animate-fade-in tracking-tight">
                         Touch Table Technology for Collaboration
                     </h2>
                     <p className="text-lg md:text-xl text-red-100 mb-10 max-w-4xl mx-auto animate-fade-in-delay leading-relaxed">
-                        Transform your collaborative workspace with our SmartTouchTable series. 
-                        Experience the perfect blend of advanced touch table technology and 
+                        Transform your collaborative workspace with our SmartTouchTable series.
+                        Experience the perfect blend of advanced touch table technology and
                         interactive collaboration designed for modern team environments.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-delay-2">
@@ -189,7 +191,7 @@ export default function SmartTouchTablePage() {
                             Schedule Touch Table Demo
                         </button>
                     </div>
-                    
+
                     {/* Additional SmartTouchTable Features */}
                     <div className="mt-12 grid md:grid-cols-4 gap-6 text-center">
                         <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">

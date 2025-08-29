@@ -150,25 +150,27 @@ export default function IFPDRK3588Page() {
                 />
             )}
 
+            {/* Products Gallery */}
+            {products.length > 0 && <ProductGallery products={products} />}
+
             {/* Advanced Features Section */}
             <ProductFeatures features={features} />
 
-            {/* Products Gallery */}
-            {products.length > 0 && <ProductGallery products={products} />}
+
 
             {/* Enhanced CTA Section with RK3588 specific messaging */}
             <section className="py-24 bg-gradient-to-br from-red-600 to-red-800 relative overflow-hidden">
                 {/* Background Pattern */}
                 <div className="absolute inset-0 bg-black/10"></div>
                 <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 to-red-800/20"></div>
-                
+
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 animate-fade-in tracking-tight">
                         Experience the Power of RK3588
                     </h2>
                     <p className="text-lg md:text-xl text-red-100 mb-10 max-w-4xl mx-auto animate-fade-in-delay leading-relaxed">
-                        Discover the future of interactive displays with our advanced RK3588 series. 
-                        Powered by cutting-edge technology, these displays deliver exceptional performance, 
+                        Discover the future of interactive displays with our advanced RK3588 series.
+                        Powered by cutting-edge technology, these displays deliver exceptional performance,
                         stunning visuals, and seamless collaboration capabilities.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-delay-2">
@@ -179,7 +181,7 @@ export default function IFPDRK3588Page() {
                             Schedule Demo
                         </button>
                     </div>
-                    
+
                     {/* Additional Info */}
                     <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
                         <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">

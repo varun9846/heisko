@@ -147,12 +147,12 @@ export default function IFP50SeriesPage() {
                     image={heroProduct.image}
                 />
             )}
-
+            {/* Products Gallery */}
+            {products.length > 0 && <ProductGallery products={products} />}
             {/* Features Section */}
             <ProductFeatures features={features} />
 
-            {/* Products Gallery */}
-            {products.length > 0 && <ProductGallery products={products} />}
+
 
             <section className="py-24 bg-gradient-to-br from-red-600 to-red-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -25,10 +25,10 @@ export default function TVStandPage() {
       try {
         setLoading(true)
         setError(null)
-        
+
         // Make API call to fetch TV Stand products
         const response = await axios.get<ATVStandResponse>('/api/accessories/tv-stand')
-        
+
         if (response.data.success) {
           setProducts(response.data.data)
           // Set the first product as hero product
@@ -131,8 +131,8 @@ export default function TVStandPage() {
           </div>
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Oops! Something went wrong</h2>
           <p className="text-gray-600 mb-6">{error}</p>
-          <button 
-            onClick={() => window.location.reload()} 
+          <button
+            onClick={() => window.location.reload()}
             className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
           >
             Try Again
@@ -152,12 +152,12 @@ export default function TVStandPage() {
           image={heroProduct.image}
         />
       )}
-
+      {/* Products Gallery */}
+      {products.length > 0 && <ProductGallery products={products} />}
       {/* Features Section */}
       <ProductFeatures features={tvStandFeatures} />
 
-      {/* Products Gallery */}
-      {products.length > 0 && <ProductGallery products={products} />}
+
 
       {/* Enhanced CTA Section for TV Stands */}
       <section className="py-20 bg-gradient-to-br from-red-600 to-red-700 text-white">
@@ -167,11 +167,11 @@ export default function TVStandPage() {
               Ready to Elevate Your Viewing Experience?
             </h2>
             <p className="text-xl text-red-100 max-w-3xl mx-auto">
-              Experience the perfect blend of professional mounting, cable management, and space optimization with our premium TV stand solutions. 
+              Experience the perfect blend of professional mounting, cable management, and space optimization with our premium TV stand solutions.
               Create the ultimate viewing setup for your space.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="text-center">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
